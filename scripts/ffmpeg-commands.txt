@@ -1,0 +1,21 @@
+# FUNEKA PLACEMENTS - Asset Optimisation Commands
+# -----------------------------------------------
+# Images → WebP (quality-focused but lightweight)
+# Replace INPUT.* and OUTPUT.webp with your file paths.
+
+# 1) PNG/JPG → WebP (good quality)
+ffmpeg -i INPUT.png -vf "scale=1600:-1:flags=lanczos" -c:v libwebp -q:v 80 -compression_level 6 OUTPUT.webp
+
+# 2) High compression WebP (smaller size)
+ffmpeg -i INPUT.jpg -vf "scale=1400:-1:flags=lanczos" -c:v libwebp -q:v 70 -compression_level 6 OUTPUT.webp
+
+# 3) Transparent PNG → WebP (keeps alpha)
+ffmpeg -i INPUT.png -vf "scale=1200:-1:flags=lanczos" -c:v libwebp -lossless 0 -q:v 80 -compression_level 6 OUTPUT.webp
+
+# Videos → MP4 (H.264, web-safe)
+# --------------------------------
+# 4) MP4 H.264, good for web
+ffmpeg -i INPUT.mov -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k OUTPUT.mp4
+
+# 5) Slightly smaller (more compression)
+ffmpeg -i INPUT.mov -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k OUTPUT.mp4
