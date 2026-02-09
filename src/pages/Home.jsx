@@ -5,9 +5,9 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import TrustStrip from "../components/TrustStrip.jsx";
 import { jobs } from "../data/jobs.js";
 
-import heroImg from "../assets/images/home-hero.png.png";
+import heroImg from "../assets/images/home-hero.png.webp";
 import servicesHeader from "../assets/images/services-header.png.webp";
-import processHero from "../assets/images/process-hero.png.png";
+import processHero from "../assets/images/process-hero.png.webp";
 
 export default function Home() {
   const latest = jobs.slice(0, 3);

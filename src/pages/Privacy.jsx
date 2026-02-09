@@ -1,6 +1,6 @@
 import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import privacyImg from "../assets/images/privacy-security.png.png";
+import privacyImg from "../assets/images/privacy-security.png.webp";
 
 export default function Privacy() {
   return (

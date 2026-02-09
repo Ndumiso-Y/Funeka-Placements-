@@ -2,7 +2,7 @@ import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
-import hero from "../assets/images/employers-hero.png.png";
+import hero from "../assets/images/employers-hero.png.webp";
 
 export default function Employers() {
   return (

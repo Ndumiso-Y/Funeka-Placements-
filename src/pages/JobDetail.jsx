@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Container from "../components/Container.jsx";
 import Button from "../components/Button.jsx";
-import jobHeader from "../assets/images/job-detail-header.png.png";
+import jobHeader from "../assets/images/job-detail-header.png.webp";
 import { jobs } from "../data/jobs.js";
 
 export default function JobDetail() {

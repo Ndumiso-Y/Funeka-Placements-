@@ -1,7 +1,7 @@
 import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import aboutTeam from "../assets/images/about-team.png.png";
-import mvImg from "../assets/images/mission-vision.png.png";
+import aboutTeam from "../assets/images/about-team.png.webp";
+import mvImg from "../assets/images/mission-vision.png.webp";
 
 const values = [
   "Team Work",

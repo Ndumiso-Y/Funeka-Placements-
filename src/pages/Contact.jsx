@@ -1,7 +1,7 @@
 import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
-import contactImg from "../assets/images/contact-office.png.png";
+import contactImg from "../assets/images/contact-office.png.webp";
 
 export default function Contact() {
   return (

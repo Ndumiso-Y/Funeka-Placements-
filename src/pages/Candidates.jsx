@@ -2,8 +2,8 @@ import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
-import hero from "../assets/images/candidates-hero.png.png";
-import howToApply from "../assets/images/HowToApply.png.PNG";
+import hero from "../assets/images/candidates-hero.png.webp";
+import howToApply from "../assets/images/HowToApply.png.webp";
 
 export default function Candidates() {
   return (

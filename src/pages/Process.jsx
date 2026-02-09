@@ -2,7 +2,7 @@ import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
-import hero from "../assets/images/process-hero.png.png";
+import hero from "../assets/images/process-hero.png.webp";
 
 const steps = [
   { n: 1, t: "Client briefing & role definition", d: "Clarify requirements, location, employment type, role outcomes and expectations." },
