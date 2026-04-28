@@ -6,6 +6,6 @@ import react from "@vitejs/plugin-react";
 // - cPanel (upload /dist folder contents)
 export default defineConfig({
   plugins: [react()],
-  base: "./",
-  assetsInclude: ["**/*.PNG", "**/*.png.PNG", "**/*.JPG", "**/*.JPEG", "**/*.WEBP"],
+  base: "/Funeka-Placements-/",
+  assetsInclude: ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.webp", "**/*.svg", "**/*.PNG", "**/*.JPG", "**/*.JPEG", "**/*.WEBP"],
 });
