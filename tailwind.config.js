@@ -7,7 +7,7 @@ export default {
         funeka: {
           brand: "#B6D0E1", // Soft supporting blue
           anchor: "#234E63", // Strong primary teal/navy
-          pop: "#E59F1A", // Warm gold accent
+          pop: "#B6D0E1", // Soft blue (merged from pop)
           text: "#1F2937", // Dark gray text
           bg: "#F8FAFC", // Light background
           white: "#FFFFFF",

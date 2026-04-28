@@ -176,7 +176,7 @@ export default function Home() {
                 ].map((s) => (
                   <div key={s} className="group rounded-2xl border-2 border-funeka-divider bg-white p-6 hover:border-funeka-pop hover:shadow-xl transition-all">
                     <div className="flex items-center gap-4">
-                      <div className="h-3 w-3 rounded-full bg-funeka-pop group-hover:scale-150 transition-transform shadow-[0_0_8px_rgba(229,159,26,0.4)]"></div>
+                      <div className="h-3 w-3 rounded-full bg-funeka-pop group-hover:scale-150 transition-transform shadow-[0_0_8px_rgba(182,208,225,0.4)]"></div>
                       <div className="font-black text-funeka-anchor uppercase tracking-tight text-sm">{s}</div>
                     </div>
                   </div>

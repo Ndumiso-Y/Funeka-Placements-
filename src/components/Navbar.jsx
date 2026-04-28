@@ -33,7 +33,7 @@ function LinkItem({ to, label, onClick }) {
         <>
           {label}
           {isActive && (
-            <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-funeka-pop rounded-full shadow-[0_0_8px_rgba(229,159,26,0.5)]" />
+            <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-funeka-pop rounded-full shadow-[0_0_8px_rgba(182,208,225,0.5)]" />
           )}
         </>
       )}

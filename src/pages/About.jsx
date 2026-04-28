@@ -1,4 +1,4 @@
-﻿import Container from "../components/Container.jsx";
+import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import aboutTeam from "../assets/images/about-team.png.webp";
 import mvImg from "../assets/images/mission-vision.png.webp";
@@ -126,7 +126,7 @@ export default function About() {
               </div>
               <h3 className="text-3xl font-black text-funeka-anchor mb-6 uppercase tracking-tight">For Partners</h3>
               <p className="text-funeka-text/60 leading-relaxed font-medium mb-10 text-lg">
-                We support your operations by sourcing technical talent, coordinating rigorous screenings, and assisting with placement — aligned to your specific role requirements and culture.
+                We support your operations by sourcing technical talent, coordinating rigorous screenings, and assisting with placement � aligned to your specific role requirements and culture.
               </p>
               <ul className="space-y-5">
                 {[

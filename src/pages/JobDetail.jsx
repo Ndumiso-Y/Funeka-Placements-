@@ -58,7 +58,7 @@ export default function JobDetail() {
               {job.title}
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/90 font-bold flex items-center gap-5">
-              <span className="bg-funeka-pop w-3 h-10 rounded-full shadow-[0_0_15px_rgba(229,159,26,0.6)]" />
+              <span className="bg-funeka-pop w-3 h-10 rounded-full shadow-[0_0_15px_rgba(182,208,225,0.6)]" />
               {job.location} <span className="text-white/40">•</span> {job.employmentType}
             </p>
             
@@ -117,7 +117,7 @@ export default function JobDetail() {
                 <ul className="space-y-5">
                   {job.requirements.map((r, i) => (
                     <li key={i} className="flex items-start gap-5 text-funeka-text/70">
-                      <div className="mt-2 w-2.5 h-2.5 rounded-full bg-funeka-pop flex-shrink-0 shadow-[0_0_8px_rgba(229,159,26,0.4)]" />
+                      <div className="mt-2 w-2.5 h-2.5 rounded-full bg-funeka-pop flex-shrink-0 shadow-[0_0_8px_rgba(182,208,225,0.4)]" />
                       <span className="text-lg font-medium leading-relaxed">{r}</span>
                     </li>
                   ))}
