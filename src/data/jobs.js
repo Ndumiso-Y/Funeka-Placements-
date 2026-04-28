@@ -4,6 +4,8 @@ export const jobs = [
     title: "Administrative Assistant",
     location: "Rustenburg, North West",
     employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-15",
     summary:
       "Provide front-office administration support, manage schedules, assist with document preparation, and coordinate internal communication.",
     responsibilities: [
@@ -20,13 +22,64 @@ export const jobs = [
       "Excellent communication and professionalism",
       "Ability to multitask and meet deadlines",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "sharon@funekaplacements.co.za",
+  },
+  {
+    id: "mining-engineer-senior",
+    title: "Senior Mining Engineer",
+    location: "Rustenburg, North West (Mining Site)",
+    employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-20",
+    summary:
+      "Oversee mining operations, ensure safety compliance, and optimize production processes in an underground mining environment.",
+    responsibilities: [
+      "Design and implement mining plans",
+      "Monitor safety standards and environmental regulations",
+      "Coordinate with geologists and surveyors",
+      "Manage operational budgets and timelines",
+      "Supervise on-site technical teams",
+    ],
+    requirements: [
+      "B.Sc / B.Eng in Mining Engineering",
+      "8+ years experience in underground mining",
+      "Professional registration (ECSA) preferred",
+      "Strong leadership and project management skills",
+      "Deep understanding of MHSA regulations",
+    ],
+    applyEmail: "ruth@funekaplacements.co.za",
+  },
+  {
+    id: "safety-officer-mining",
+    title: "Safety Officer (Mining)",
+    location: "Marikana, North West",
+    employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-10",
+    summary:
+      "Implement and maintain health and safety standards on-site. Conduct risk assessments and ensure compliance with mining safety legislation.",
+    responsibilities: [
+      "Conduct regular site safety audits",
+      "Facilitate safety induction training",
+      "Investigate on-site incidents and report findings",
+      "Maintain ISO safety documentation",
+      "Coordinate with the Mine Health and Safety Committee",
+    ],
+    requirements: [
+      "SAMTRAC or COMSOC qualification",
+      "3-5 years experience in a mining environment",
+      "Knowledge of Mine Health and Safety Act",
+      "Strong attention to detail and reporting skills",
+    ],
+    applyEmail: "sharon@funekaplacements.co.za",
   },
   {
     id: "driver-code10",
     title: "Code 10 Driver (PDP)",
     location: "Rustenburg, North West",
     employmentType: "Contract",
+    status: "closed",
+    closingDate: "2026-04-01",
     summary:
       "Deliver goods safely and on time, complete route logs, and maintain vehicle checks in line with company standards.",
     responsibilities: [
@@ -43,13 +96,15 @@ export const jobs = [
       "Sober habits and reliable attendance",
       "Able to work flexible hours when required",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "sharon@funekaplacements.co.za",
   },
   {
     id: "general-worker-warehouse",
     title: "Warehouse General Worker",
     location: "Rustenburg, North West",
     employmentType: "Temporary",
+    status: "closed",
+    closingDate: "2026-03-15",
     summary:
       "Assist with receiving, picking, packing and dispatch. Support housekeeping and basic stock movement in a warehouse environment.",
     responsibilities: [
@@ -66,13 +121,15 @@ export const jobs = [
       "Attention to detail and teamwork",
       "Willingness to learn and follow safety rules",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "ruth@funekaplacements.co.za",
   },
   {
     id: "hr-officer",
     title: "HR Officer",
     location: "Rustenburg, North West",
     employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-30",
     summary:
       "Support HR administration, recruitment coordination, onboarding, and employee record management while ensuring compliance with HR policies.",
     responsibilities: [
@@ -89,13 +146,15 @@ export const jobs = [
       "Professional discretion and confidentiality",
       "Comfortable using HR systems and MS Office",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "sharon@funekaplacements.co.za",
   },
   {
     id: "call-centre-agent",
     title: "Customer Service / Call Centre Agent",
     location: "Hybrid (Rustenburg)",
     employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-15",
     summary:
       "Handle customer queries, resolve issues professionally, and capture accurate information while meeting service targets.",
     responsibilities: [
@@ -112,13 +171,15 @@ export const jobs = [
       "Customer-centric attitude and patience",
       "Ability to work shifts if required",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "sharon@funekaplacements.co.za",
   },
   {
     id: "junior-accountant",
     title: "Junior Accountant / Bookkeeper",
     location: "Rustenburg, North West",
     employmentType: "Permanent",
+    status: "open",
+    closingDate: "2026-05-25",
     summary:
       "Assist with day-to-day bookkeeping, invoicing, reconciliations and basic reporting while supporting month-end processes.",
     responsibilities: [
@@ -135,6 +196,6 @@ export const jobs = [
       "Strong attention to detail and integrity",
       "Comfortable with Excel and basic reporting",
     ],
-    applyEmail: "recruitment@funekaplacements.co.za",
+    applyEmail: "ruth@funekaplacements.co.za",
   },
 ];

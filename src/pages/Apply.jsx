@@ -42,7 +42,7 @@ Message:
 ${form.message}
 
 POPIA Consent: Yes`;
-    return `mailto:recruitment@funekaplacements.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [form]);
 
   return (
@@ -167,8 +167,8 @@ POPIA Consent: Yes`;
                 <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
                   This starter build does not send data to a server yet. Use the “Email CV instead” button to send your details,
                   or email your CV directly to{" "}
-                  <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-                    recruitment@funekaplacements.co.za
+                  <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
+                    sharon@funekaplacements.co.za or ruth@funekaplacements.co.za
                   </a>.
                 </p>
               </div>
@@ -179,8 +179,8 @@ POPIA Consent: Yes`;
             <div className="text-sm font-semibold text-funeka-charcoal">Fallback option</div>
             <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
               If you experience issues with the form, send your CV to{" "}
-              <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-                recruitment@funekaplacements.co.za
+              <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
+                sharon@funekaplacements.co.za or ruth@funekaplacements.co.za
               </a>.
             </p>
 

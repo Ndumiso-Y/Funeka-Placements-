@@ -15,39 +15,39 @@ export default function Home() {
   return (
     <div>
       {/* 1) Hero */}
-      <section className="relative overflow-hidden border-b border-funeka-dividerGrey h-[400px] sm:h-[500px]">
+      <section className="relative overflow-hidden border-b border-funeka-dividerGrey h-[450px] sm:h-[600px]">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Funeka Placements" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         </div>
 
         <Container className="relative h-full flex items-center py-14 sm:py-20">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center rounded-full border border-white/30 bg-white px-3 py-1 text-xs text-funeka-midGrey shadow-sm">
-              Recruitment Agency • South Africa
+            <div className="inline-flex items-center rounded-full border border-white/20 bg-funeka-vibrantBlue/10 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white shadow-sm">
+              Mining & Industrial Recruitment Specialists
             </div>
 
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl drop-shadow-lg">
-              FUNEKA PLACEMENTS
+            <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-white sm:text-7xl drop-shadow-2xl">
+              FUNEKA <span className="text-funeka-electricBlue">PLACEMENTS</span>
             </h1>
-            <p className="mt-3 text-lg text-white leading-relaxed drop-shadow-md">
+            <p className="mt-4 text-xl text-white/90 font-medium leading-relaxed drop-shadow-lg italic">
               "There is always a need"
             </p>
 
-            <p className="mt-5 text-white/95 leading-relaxed drop-shadow-md">
-              We connect employers with the right talent and help candidates find the right opportunities —
-              with a structured process, transparent communication, and POPIA-aware handling of personal information.
+            <p className="mt-6 text-lg text-white/95 leading-relaxed drop-shadow-lg">
+              Connecting mining and industrial leaders with top-tier talent. We leverage deep candidate databases and a structured process to ensure better hiring outcomes.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button as={NavLink} to="/employers">Hire Talent</Button>
-              <Button as={NavLink} to="/jobs" variant="ghost">Find Jobs</Button>
-              <Button as={NavLink} to="/apply" variant="dark">Submit CV</Button>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button as={NavLink} to="/employers" className="bg-white text-funeka-charcoal hover:bg-funeka-softBlue">Hire Talent</Button>
+              <Button as={NavLink} to="/jobs" variant="ghost" className="border-white text-white hover:bg-white/10">Find Jobs</Button>
+              <Button as={NavLink} to="/apply" variant="dark" className="bg-funeka-vibrantBlue hover:bg-funeka-deepBlue">Submit CV</Button>
             </div>
 
-            <div className="mt-6 text-sm text-white/90 drop-shadow-md">
-              Email:{" "}
-              <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-                recruitment@funekaplacements.co.za
+            <div className="mt-8 flex items-center gap-2 text-sm text-white/90 drop-shadow-md">
+              <span className="font-semibold text-funeka-softBlue">General Enquiries:</span>
+              <a className="hover:text-funeka-softBlue transition underline underline-offset-4" href="mailto:rustenburg@funekaplacements.co.za">
+                rustenburg@funekaplacements.co.za
               </a>
             </div>
           </div>
@@ -94,12 +94,12 @@ export default function Home() {
           <SectionHeading title="How Funeka delivers" subtitle="What clients can expect when partnering with Funeka Placements." />
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              "We help employers focus on performance while we source and place the right talent.",
-              "We understand your business, culture and values.",
-              "We provide permanent, temporary, contract and labour hosting solutions.",
+              "A recruitment partner that saves your time, protects your reputation, and supports better hiring outcomes.",
+              "We understand your business, culture and values, especially within the specialized mining and industrial sectors.",
+              "We provide permanent, temporary, contract and labour hosting solutions backed by a deep candidate database.",
             ].map((t) => (
-              <div key={t} className="rounded-2xl border border-funeka-dividerGrey p-6 shadow-soft">
-                <p className="text-funeka-charcoal leading-relaxed">{t}</p>
+              <div key={t} className="rounded-2xl border border-funeka-dividerGrey p-6 shadow-soft bg-white hover:border-funeka-vibrantBlue transition-colors group">
+                <p className="text-funeka-charcoal leading-relaxed font-medium group-hover:text-funeka-vibrantBlue transition-colors">{t}</p>
               </div>
             ))}
           </div>

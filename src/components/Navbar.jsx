@@ -43,34 +43,34 @@ export default function Navbar() {
   }, [location.pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-funeka-dividerGrey bg-white/90 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <NavLink to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Funeka Placements" className="h-10 w-10 rounded-lg border border-funeka-dividerGrey bg-white p-1" />
+    <header className="sticky top-0 z-40 border-b border-funeka-dividerGrey bg-white/95 backdrop-blur-md">
+      <Container className="flex h-20 items-center justify-between !max-w-none px-4 lg:px-8">
+        <NavLink to="/" className="flex items-center gap-4 group">
+          <img src={logo} alt="Funeka Placements" className="h-14 w-14 rounded-xl border border-funeka-dividerGrey bg-white p-1.5 shadow-sm group-hover:shadow-md transition-shadow" />
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-funeka-charcoal">FUNEKA PLACEMENTS</div>
-            <div className="text-xs text-funeka-midGrey">There is always a need</div>
+            <div className="text-lg font-extrabold text-funeka-charcoal tracking-tighter">FUNEKA PLACEMENTS</div>
+            <div className="text-[10px] font-bold text-funeka-vibrantBlue uppercase tracking-[0.2em]">Recruitment Specialists</div>
           </div>
         </NavLink>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden xl:flex items-center gap-1">
           {links.map((l) => (
             <LinkItem key={l.to} to={l.to} label={l.label} />
           ))}
           <NavLink
             to="/staff/login"
-            className="ml-2 rounded-xl border border-funeka-dividerGrey px-3 py-2 text-sm text-funeka-charcoal hover:bg-funeka-lightBlueTint transition"
+            className="ml-4 rounded-full bg-funeka-charcoal px-6 py-2 text-sm font-semibold text-white hover:bg-funeka-darkGreyHover transition shadow-sm"
           >
-            Staff
+            Staff Portal
           </NavLink>
         </nav>
 
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-xl border border-funeka-dividerGrey p-2 hover:bg-funeka-lightBlueTint transition"
+          className="xl:hidden inline-flex items-center justify-center rounded-xl border border-funeka-dividerGrey p-2.5 hover:bg-funeka-lightBlueTint transition"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </Container>
 

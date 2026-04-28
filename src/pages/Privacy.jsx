@@ -57,8 +57,8 @@ export default function Privacy() {
                 <div className="font-semibold text-funeka-charcoal">Contact</div>
                 <div className="mt-2">
                   For privacy requests or questions, email{" "}
-                  <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-                    recruitment@funekaplacements.co.za
+                  <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
+                    rustenburg@funekaplacements.co.za
                   </a>.
                 </div>
               </div>

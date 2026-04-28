@@ -5,14 +5,17 @@ export default {
     extend: {
       colors: {
         funeka: {
-          charcoal: "#3F3F3F",
-          softBlue: "#BFD8E6",
-          midGrey: "#8E8E8E",
+          charcoal: "#1A1A1A",
+          deepBlue: "#0F172A", // Rich slate-900
+          vibrantBlue: "#2563EB", // Vibrant blue-600
+          electricBlue: "#3B82F6", // Bright blue-500
+          softBlue: "#E0F2FE", // Sky-100
+          midGrey: "#4B5563", // Slate-600
           white: "#FFFFFF",
-          lightBlueTint: "#EAF3F8",
-          blueHover: "#A8C7D8",
-          dividerGrey: "#DADADA",
-          darkGreyHover: "#2F2F2F",
+          lightBlueTint: "#F8FAFC", // Slate-50
+          blueHover: "#EFF6FF", // Blue-50
+          dividerGrey: "#E2E8F0", // Slate-200
+          darkGreyHover: "#334155", // Slate-700
         },
       },
       boxShadow: {

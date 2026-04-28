@@ -16,8 +16,8 @@ export default function Footer() {
               <div className="mt-4 text-sm text-funeka-midGrey">
                 <div>28 Abbie Str, Rustenburg Visitors Center</div>
                 <div className="mt-1">
-                  <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-                    recruitment@funekaplacements.co.za
+                  <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
+                    rustenburg@funekaplacements.co.za
                   </a>
                 </div>
               </div>

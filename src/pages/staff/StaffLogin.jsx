@@ -100,13 +100,13 @@ export default function StaffLogin() {
           <p className="text-sm text-funeka-midGrey leading-relaxed">
             For this Phase 1 foundation, password resets are managed by an admin.
             Please email{" "}
-            <a className="hover:underline" href="mailto:recruitment@funekaplacements.co.za">
-              recruitment@funekaplacements.co.za
+            <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
+              rustenburg@funekaplacements.co.za
             </a>{" "}
             to request a reset.
           </p>
           <div className="mt-4">
-            <Button as="a" href="mailto:recruitment@funekaplacements.co.za?subject=Staff%20Password%20Reset%20Request">
+            <Button as="a" href="mailto:rustenburg@funekaplacements.co.za?subject=Staff%20Password%20Reset%20Request">
               Email admin
             </Button>
           </div>
