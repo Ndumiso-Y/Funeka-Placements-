@@ -8,84 +8,88 @@ export default function Jobs() {
   const sortedJobs = [...jobs].sort((a, b) => (a.status === "open" ? -1 : 1));
 
   return (
-    <div className="py-12 bg-funeka-lightBlueTint/30">
+    <div className="py-24 bg-funeka-bg">
       <Container>
         <SectionHeading
-          title="Current Opportunities"
-          subtitle="Explore open roles in mining, industrial, and administrative sectors. Closing dates are strictly observed."
+          title="Open Opportunities"
+          subtitle="Explore specialized roles in the mining and engineering sectors. We strictly monitor all closing dates."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 mt-10">
+        <div className="grid gap-10 md:grid-cols-2 mt-16">
           {sortedJobs.map((job) => (
-            <div
+            <NavLink
               key={job.id}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+              to={`/jobs/${job.id}`}
+              className={`group block rounded-[2.5rem] border-2 transition-all duration-500 bg-white relative overflow-hidden ${
                 job.status === "open"
-                  ? "border-funeka-dividerGrey bg-white shadow-soft hover:shadow-xl hover:-translate-y-1"
-                  : "border-gray-200 bg-gray-50 opacity-75 grayscale-[0.5]"
+                  ? "border-funeka-divider hover:border-funeka-pop shadow-sm hover:shadow-2xl hover:-translate-y-2"
+                  : "border-funeka-divider/50 bg-funeka-bg grayscale-[0.8] cursor-not-allowed opacity-60"
               }`}
             >
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="text-lg font-bold text-funeka-charcoal tracking-tight">{job.title}</div>
-                    <div className="mt-1 text-sm font-medium text-funeka-vibrantBlue">
-                      {job.location} • {job.employmentType}
+              <div className="p-10">
+                <div className="flex items-start justify-between gap-6 mb-8">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-black text-funeka-anchor uppercase tracking-tighter leading-tight group-hover:text-funeka-pop transition-colors">
+                      {job.title}
+                    </h3>
+                    <div className="flex items-center gap-3 text-xs font-black text-funeka-pop uppercase tracking-[0.2em]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {job.location}
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-2">
+                  <div className="flex flex-col items-end gap-3 shrink-0">
                     <span
-                      className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                      className={`rounded-xl px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] border-2 ${
                         job.status === "open"
-                          ? "bg-green-100 text-green-700 border border-green-200"
-                          : "bg-gray-200 text-gray-600 border border-gray-300"
+                          ? "bg-funeka-pop/10 text-funeka-pop border-funeka-pop/20"
+                          : "bg-funeka-divider text-funeka-text/40 border-funeka-divider"
                       }`}
                     >
                       {job.status === "open" ? "Active" : "Closed"}
                     </span>
-                    <div className="text-[11px] font-semibold text-funeka-midGrey">
-                      Closing: {job.closingDate}
+                    <div className="flex items-center gap-2 text-[11px] font-black text-funeka-text/40 uppercase tracking-widest">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-funeka-pop"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                      Ends: {job.closingDate}
                     </div>
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm text-funeka-midGrey leading-relaxed line-clamp-3">
+                <p className="text-lg text-funeka-text/70 leading-relaxed line-clamp-2 font-medium">
                   {job.summary}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Button as={NavLink} to={`/jobs/${job.id}`} className="px-6">
+                <div className="mt-10 pt-8 border-t border-funeka-divider flex items-center justify-between">
+                   <div className="text-[10px] font-black text-funeka-anchor/30 uppercase tracking-[0.25em]">
+                    {job.employmentType}
+                  </div>
+                  <div className="flex items-center gap-3 text-funeka-anchor font-black text-xs uppercase tracking-[0.2em] group-hover:text-funeka-pop transition-colors">
                     View Details
-                  </Button>
-                  {job.status === "open" && (
-                    <Button as={NavLink} to="/apply" variant="ghost">
-                      Apply Now
-                    </Button>
-                  )}
+                    <div className="h-8 w-8 rounded-xl bg-funeka-anchor/5 flex items-center justify-center group-hover:bg-funeka-pop group-hover:text-white transition-all">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                  </div>
                 </div>
               </div>
-              {job.status === "closed" && (
-                <div className="bg-gray-200 py-1.5 text-center text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                  Applications Closed
-                </div>
-              )}
-            </div>
+            </NavLink>
           ))}
         </div>
 
-        <div className="mt-16 rounded-3xl border border-funeka-dividerGrey bg-funeka-charcoal p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-funeka-vibrantBlue/10 rounded-full -mr-32 -mt-32 blur-3xl" />
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold">Not seeing your ideal role?</h3>
-            <p className="mt-4 text-white/80 max-w-2xl leading-relaxed">
-              We specialize in mining and industrial placements. Even if a specific role isn't listed, we are constantly building our candidate database. Submit your CV today and we'll reach out when a match arises.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button as={NavLink} to="/apply" className="bg-funeka-vibrantBlue hover:bg-funeka-deepBlue border-none text-white px-10 py-4">
+        <div className="mt-20 rounded-[3rem] border-2 border-funeka-anchor bg-funeka-anchor p-12 lg:p-16 text-white shadow-2xl relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-funeka-brand/5 rounded-full -mr-32 -mt-32 blur-[100px] group-hover:bg-funeka-pop/10 transition-all duration-700" />
+          <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="h-1.5 w-12 bg-funeka-pop rounded-full mb-8"></div>
+              <h3 className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none mb-6">No matching <br /><span className="text-funeka-brand">Role Found?</span></h3>
+              <p className="text-xl text-white/60 font-medium leading-relaxed">
+                Even if a specific role isn't listed, we are constantly building our database of industry specialists. Submit your CV today.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-5 lg:justify-end">
+              <Button as={NavLink} to="/apply" variant="pop" className="px-12 py-5 text-lg">
                 Submit Your CV
               </Button>
-              <Button as={NavLink} to="/contact" variant="ghost" className="border-white/30 text-white hover:bg-white/10">
-                Contact Recruitment
+              <Button as={NavLink} to="/contact" variant="outline" className="px-12 py-5 text-lg">
+                Contact Us
               </Button>
             </div>
           </div>

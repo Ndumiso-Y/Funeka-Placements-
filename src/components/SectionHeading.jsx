@@ -1,11 +1,18 @@
 export default function SectionHeading({ title, subtitle }) {
   return (
-    <div className="mb-6">
-      <h2 className="text-2xl sm:text-3xl font-semibold text-funeka-charcoal">{title}</h2>
+    <div className="mb-10 lg:mb-16">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="h-1 w-12 bg-funeka-brand rounded-full shadow-[0_0_8px_rgba(37,99,235,0.3)]"></div>
+        <div className="h-1 w-4 bg-funeka-pop rounded-full"></div>
+      </div>
+      <h2 className="text-3xl sm:text-5xl font-black text-funeka-anchor uppercase tracking-tighter leading-none">
+        {title}
+      </h2>
       {subtitle ? (
-        <p className="mt-2 text-funeka-midGrey leading-relaxed">{subtitle}</p>
+        <p className="mt-6 text-lg sm:text-xl text-funeka-text leading-relaxed max-w-3xl font-medium">
+          {subtitle}
+        </p>
       ) : null}
-      <div className="mt-4 h-px w-full bg-funeka-dividerGrey" />
     </div>
   );
 }

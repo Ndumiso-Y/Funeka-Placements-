@@ -79,9 +79,9 @@ export default function StaffDashboard() {
       setModal({
         title: "Feature preview – Coming soon / Upgrade available",
         body: (
-          <div className="text-sm text-funeka-midGrey leading-relaxed">
+          <div className="text-sm text-funeka-text leading-relaxed">
             <p>
-              <span className="font-semibold text-funeka-charcoal">{card.label}</span> is a locked preview feature in Phase 1.
+              <span className="font-semibold text-funeka-anchor">{card.label}</span> is a locked preview feature in Phase 1.
             </p>
             <p className="mt-3">
               This dashboard shows the full long-term system. Locked items are visual previews only — they will be activated in future phases.
@@ -104,9 +104,9 @@ export default function StaffDashboard() {
       <Container>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-semibold text-funeka-charcoal">Staff Dashboard</h1>
-            <p className="mt-1 text-sm text-funeka-midGrey">
-              Logged in as <span className="font-medium text-funeka-charcoal">{session?.email}</span> ({session?.role})
+            <h1 className="text-2xl sm:text-3xl font-semibold text-funeka-anchor">Staff Dashboard</h1>
+            <p className="mt-1 text-sm text-funeka-text">
+              Logged in as <span className="font-medium text-funeka-anchor">{session?.email}</span> ({session?.role})
             </p>
           </div>
 
@@ -120,8 +120,8 @@ export default function StaffDashboard() {
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {/* Sidebar cards */}
           <div className="lg:col-span-1">
-            <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-4 shadow-soft">
-              <div className="text-sm font-semibold text-funeka-charcoal">System modules</div>
+            <div className="rounded-2xl border border-funeka-divider bg-white p-4 shadow-soft">
+              <div className="text-sm font-semibold text-funeka-anchor">System modules</div>
               <div className="mt-3 grid gap-2">
                 {cards.map((c) => {
                   const Icon = c.icon;
@@ -133,24 +133,24 @@ export default function StaffDashboard() {
                       onClick={() => onCardClick(c)}
                       className={[
                         "w-full rounded-xl border px-4 py-3 text-left transition",
-                        active ? "border-funeka-blueHover bg-funeka-lightBlueTint" : "border-funeka-dividerGrey hover:bg-funeka-lightBlueTint",
+                        active ? "border-funeka-blueHover bg-funeka-bg" : "border-funeka-divider hover:bg-funeka-bg",
                         locked ? "opacity-60 grayscale" : "",
                       ].join(" ")}
                     >
                       <div className="flex items-start gap-3">
-                        <div className="mt-0.5 rounded-lg bg-funeka-softBlue p-2 text-funeka-charcoal">
+                        <div className="mt-0.5 rounded-lg bg-funeka-brand/20 p-2 text-funeka-anchor">
                           <Icon size={18} />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between gap-2">
-                            <div className="text-sm font-medium text-funeka-charcoal">{c.label}</div>
+                            <div className="text-sm font-medium text-funeka-anchor">{c.label}</div>
                             {locked ? (
-                              <span className="inline-flex items-center gap-1 text-xs text-funeka-midGrey">
+                              <span className="inline-flex items-center gap-1 text-xs text-funeka-text">
                                 <Lock size={14} /> Locked
                               </span>
                             ) : null}
                           </div>
-                          <div className="mt-1 text-xs text-funeka-midGrey leading-relaxed">{c.desc}</div>
+                          <div className="mt-1 text-xs text-funeka-text leading-relaxed">{c.desc}</div>
                         </div>
                       </div>
                     </button>
@@ -159,9 +159,9 @@ export default function StaffDashboard() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5">
-              <div className="text-sm font-semibold text-funeka-charcoal">Phase 1 notes</div>
-              <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
+            <div className="mt-6 rounded-2xl border border-funeka-divider bg-funeka-bg p-5">
+              <div className="text-sm font-semibold text-funeka-anchor">Phase 1 notes</div>
+              <p className="mt-2 text-sm text-funeka-text leading-relaxed">
                 Active modules store data in your browser (localStorage). Locked modules open a preview modal.
               </p>
             </div>
@@ -170,8 +170,8 @@ export default function StaffDashboard() {
           {/* Main area */}
           <div className="lg:col-span-2">
             {tab === "overview" ? (
-              <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-                <div className="text-sm font-semibold text-funeka-charcoal">Overview</div>
+              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
+                <div className="text-sm font-semibold text-funeka-anchor">Overview</div>
                 <div className="mt-4 grid gap-4 sm:grid-cols-3">
                   <Stat label="Invoices" value={String(invoices.length)} />
                   <Stat label="Documents" value={String(docs.length)} />
@@ -179,8 +179,8 @@ export default function StaffDashboard() {
                 </div>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-xl border border-funeka-dividerGrey p-5">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-charcoal">
+                  <div className="rounded-xl border border-funeka-divider p-5">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-anchor">
                       <FileText size={16} /> Shortcuts
                     </div>
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -190,11 +190,11 @@ export default function StaffDashboard() {
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-funeka-dividerGrey p-5">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-charcoal">
+                  <div className="rounded-xl border border-funeka-divider p-5">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-anchor">
                       <Activity size={16} /> Recent activity
                     </div>
-                    <div className="mt-3 text-sm text-funeka-midGrey">
+                    <div className="mt-3 text-sm text-funeka-text">
                       {log.length === 0 ? (
                         <div>No activity yet. Create an invoice or upload a document to generate activity.</div>
                       ) : (
@@ -213,32 +213,32 @@ export default function StaffDashboard() {
             ) : null}
 
             {tab === "invoices" ? (
-              <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
+              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="text-sm font-semibold text-funeka-charcoal">Invoices</div>
+                  <div className="text-sm font-semibold text-funeka-anchor">Invoices</div>
                   <Button onClick={createInvoice}>Create invoice</Button>
                 </div>
 
-                <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
+                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
                   This starter build stores invoices in your browser. Replace with a backend in later phases.
                 </p>
 
                 <div className="mt-5 space-y-3">
                   {invoices.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5 text-sm text-funeka-midGrey">
+                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
                       No invoices yet. Use “Create invoice” to add your first one.
                     </div>
                   ) : (
                     invoices.map((inv) => (
-                      <div key={inv.id} className="rounded-xl border border-funeka-dividerGrey p-5">
+                      <div key={inv.id} className="rounded-xl border border-funeka-divider p-5">
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <div>
-                            <div className="text-sm font-semibold text-funeka-charcoal">{inv.id}</div>
-                            <div className="mt-1 text-sm text-funeka-midGrey">{inv.client} • {inv.date}</div>
+                            <div className="text-sm font-semibold text-funeka-anchor">{inv.id}</div>
+                            <div className="mt-1 text-sm text-funeka-text">{inv.client} • {inv.date}</div>
                           </div>
-                          <div className="text-sm text-funeka-charcoal">
+                          <div className="text-sm text-funeka-anchor">
                             R {Number(inv.amount).toFixed(2)} •{" "}
-                            <span className="rounded-full border border-funeka-dividerGrey bg-funeka-lightBlueTint px-3 py-1 text-xs text-funeka-midGrey">
+                            <span className="rounded-full border border-funeka-divider bg-funeka-bg px-3 py-1 text-xs text-funeka-text">
                               {inv.status}
                             </span>
                           </div>
@@ -251,10 +251,10 @@ export default function StaffDashboard() {
             ) : null}
 
             {tab === "docs" ? (
-              <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
+              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="text-sm font-semibold text-funeka-charcoal">Documents</div>
-                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-funeka-softBlue px-4 py-2 text-sm font-medium text-funeka-charcoal hover:bg-funeka-blueHover transition shadow-soft">
+                  <div className="text-sm font-semibold text-funeka-anchor">Documents</div>
+                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-funeka-brand/20 px-4 py-2 text-sm font-medium text-funeka-anchor hover:bg-funeka-blueHover transition shadow-soft">
                     <UploadCloud size={16} />
                     Upload
                     <input
@@ -270,20 +270,20 @@ export default function StaffDashboard() {
                   </label>
                 </div>
 
-                <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
+                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
                   Document names are stored locally for this starter build.
                 </p>
 
                 <div className="mt-5 space-y-3">
                   {docs.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5 text-sm text-funeka-midGrey">
+                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
                       No documents yet. Use “Upload” to add one.
                     </div>
                   ) : (
                     docs.map((d) => (
-                      <div key={d.id} className="rounded-xl border border-funeka-dividerGrey p-5">
-                        <div className="text-sm font-semibold text-funeka-charcoal">{d.name}</div>
-                        <div className="mt-1 text-sm text-funeka-midGrey">
+                      <div key={d.id} className="rounded-xl border border-funeka-divider p-5">
+                        <div className="text-sm font-semibold text-funeka-anchor">{d.name}</div>
+                        <div className="mt-1 text-sm text-funeka-text">
                           Uploaded: {new Date(d.at).toLocaleString()}
                         </div>
                       </div>
@@ -294,22 +294,22 @@ export default function StaffDashboard() {
             ) : null}
 
             {tab === "log" ? (
-              <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-                <div className="text-sm font-semibold text-funeka-charcoal">Activity Log</div>
-                <p className="mt-2 text-sm text-funeka-midGrey leading-relaxed">
+              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
+                <div className="text-sm font-semibold text-funeka-anchor">Activity Log</div>
+                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
                   Recent actions (stored locally).
                 </p>
 
                 <div className="mt-5 space-y-3">
                   {log.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5 text-sm text-funeka-midGrey">
+                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
                       No activity yet.
                     </div>
                   ) : (
                     log.map((l) => (
-                      <div key={l.at + l.action} className="rounded-xl border border-funeka-dividerGrey p-5">
-                        <div className="text-sm text-funeka-charcoal">{l.action}</div>
-                        <div className="mt-1 text-xs text-funeka-midGrey">
+                      <div key={l.at + l.action} className="rounded-xl border border-funeka-divider p-5">
+                        <div className="text-sm text-funeka-anchor">{l.action}</div>
+                        <div className="mt-1 text-xs text-funeka-text">
                           {new Date(l.at).toLocaleString()} • {l.by}
                         </div>
                       </div>
@@ -343,9 +343,9 @@ export default function StaffDashboard() {
 
 function Stat({ label, value }) {
   return (
-    <div className="rounded-xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5">
-      <div className="text-xs text-funeka-midGrey">{label}</div>
-      <div className="mt-2 text-2xl font-semibold text-funeka-charcoal">{value}</div>
+    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5">
+      <div className="text-xs text-funeka-text">{label}</div>
+      <div className="mt-2 text-2xl font-semibold text-funeka-anchor">{value}</div>
     </div>
   );
 }

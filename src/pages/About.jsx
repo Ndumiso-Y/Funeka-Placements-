@@ -1,4 +1,4 @@
-import Container from "../components/Container.jsx";
+﻿import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import aboutTeam from "../assets/images/about-team.png.webp";
 import mvImg from "../assets/images/mission-vision.png.webp";
@@ -15,34 +15,36 @@ const values = [
 export default function About() {
   return (
     <div>
-      <section className="border-b border-funeka-dividerGrey bg-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-funeka-lightBlueTint/30 skew-x-12 transform translate-x-20" />
-        <Container className="py-20 relative z-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="border-b border-funeka-anchor bg-white overflow-hidden relative min-h-[600px] flex items-center">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-funeka-bg skew-x-12 transform translate-x-20" />
+        <Container className="py-24 relative z-10">
+          <div className="grid gap-20 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="inline-flex items-center rounded-full border border-funeka-vibrantBlue/20 bg-funeka-vibrantBlue/5 px-3 py-1 text-xs font-bold text-funeka-vibrantBlue mb-6 uppercase tracking-widest">
-                Established Recruitment Partners
+              <div className="inline-flex items-center gap-2 rounded-full border border-funeka-anchor/10 bg-funeka-bg px-4 py-1.5 text-[10px] font-black text-funeka-anchor mb-8 uppercase tracking-[0.25em]">
+                <span className="flex h-2 w-2 rounded-full bg-funeka-pop animate-pulse"></span>
+                Established Industry Partners
               </div>
-              <h1 className="text-4xl sm:text-6xl font-black text-funeka-charcoal tracking-tight leading-[1.1]">
-                Company <span className="text-funeka-vibrantBlue">Profile</span>
+              <h1 className="text-6xl sm:text-[8rem] font-black text-funeka-anchor tracking-tighter leading-[0.85] uppercase">
+                STRATEGIC <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-anchor">PROFILE</span>
               </h1>
-              <p className="mt-6 text-lg text-funeka-midGrey leading-relaxed max-w-xl">
-                Funeka Placements is a premier recruitment agency specializing in the <span className="text-funeka-charcoal font-bold underline decoration-funeka-vibrantBlue/30 underline-offset-4">mining and industrial sectors</span>. We work with organizations ranging from SMEs to large-scale enterprises across South Africa.
+              <p className="mt-10 text-xl text-funeka-text/70 leading-relaxed max-w-xl font-medium">
+                Funeka Placements is a premier recruitment agency specializing in the <span className="text-funeka-anchor font-black border-b-4 border-funeka-pop/30">mining and industrial sectors</span>.
               </p>
-              <p className="mt-4 text-lg text-funeka-midGrey leading-relaxed max-w-xl">
-                By leveraging our extensive <span className="text-funeka-charcoal font-bold">candidate databases</span> and a rigorous 12-step recruitment process, we ensure that every placement delivers the right skills, cultural fit, and long-term performance — with a primary focus on <span className="text-funeka-charcoal font-bold">mining-specific roles</span> across technical and operational departments.
+              <p className="mt-8 text-lg text-funeka-text/60 leading-relaxed max-w-xl">
+                By leveraging our extensive candidate databases and a rigorous 12-step process, we ensure every placement delivers technical competence and long-term performance.
               </p>
               
-              <div className="mt-10 p-8 rounded-3xl border border-funeka-dividerGrey bg-white shadow-xl flex items-start gap-6">
-                <div className="w-12 h-12 rounded-2xl bg-funeka-charcoal flex items-center justify-center text-white flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div className="mt-12 p-10 rounded-[3rem] border-4 border-funeka-bg bg-white shadow-2xl flex items-start gap-8 group hover:border-funeka-pop/30 transition-all">
+                <div className="w-16 h-16 rounded-2xl bg-funeka-anchor flex items-center justify-center text-funeka-pop flex-shrink-0 shadow-xl group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-funeka-charcoal uppercase tracking-wider mb-2">Connect With Us</div>
-                  <div className="text-funeka-midGrey leading-relaxed">
-                    <div className="font-medium">28 Abbie Str, Rustenburg Visitors Center</div>
-                    <div className="mt-1">
-                      <a className="text-funeka-vibrantBlue font-bold hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
+                  <div className="text-[10px] font-black text-funeka-anchor/40 uppercase tracking-[0.25em] mb-2">Connect With Operations</div>
+                  <div className="text-funeka-anchor leading-relaxed font-bold">
+                    <div className="text-lg">28 Abbie Str, Rustenburg Center</div>
+                    <div className="mt-3">
+                      <a className="text-funeka-pop font-black hover:text-funeka-anchor transition-colors border-b-4 border-funeka-pop/20" href="mailto:rustenburg@funekaplacements.co.za">
                         rustenburg@funekaplacements.co.za
                       </a>
                     </div>
@@ -52,78 +54,115 @@ export default function About() {
             </div>
 
             <div className="relative">
-               <div className="absolute -inset-4 bg-funeka-vibrantBlue/10 rounded-3xl blur-3xl" />
-              <div className="rounded-3xl overflow-hidden border-8 border-white shadow-2xl relative">
-                <img src={aboutTeam} alt="About Funeka Placements" className="w-full h-auto object-cover" />
+               <div className="absolute -inset-10 bg-funeka-brand/10 rounded-full blur-[100px] animate-pulse" />
+              <div className="rounded-[4rem] overflow-hidden border-8 border-white shadow-2xl relative">
+                <img src={aboutTeam} alt="About Funeka Placements" className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+              </div>
+              <div className="absolute -bottom-10 -left-10 bg-funeka-pop p-10 rounded-[2.5rem] shadow-2xl hidden lg:block rotate-3">
+                <div className="text-funeka-anchor font-black text-5xl leading-none tracking-tighter">10+</div>
+                <div className="text-funeka-anchor/60 font-black text-[10px] uppercase tracking-widest mt-2">Years Expert</div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-12">
+      <section className="py-32 bg-white">
         <Container>
-          <SectionHeading title="Mission and vision" subtitle="What guides our work and how we define success for clients and candidates." />
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
-            <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-funeka-charcoal">Mission</div>
-              <p className="mt-3 text-funeka-midGrey leading-relaxed">
-                To create lasting relationships with clients and candidates based on honesty, integrity, trust and mutual respect through a unique recruitment experience.
-              </p>
+          <SectionHeading title="Strategic Intent" subtitle="What guides our work and how we define success for our global industrial partners." />
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center mt-20">
+            <div className="space-y-10">
+              <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-brand/30 hover:bg-white transition-all group">
+                <div className="h-1.5 w-12 bg-funeka-brand rounded-full mb-8 group-hover:bg-funeka-pop transition-all duration-500"></div>
+                <h3 className="text-3xl font-black text-funeka-anchor mb-6 uppercase tracking-tight">Mission</h3>
+                <p className="text-funeka-text/70 leading-relaxed font-medium text-xl">
+                  To create lasting relationships with clients and candidates based on honesty, integrity, and deep technical trust through a unique recruitment experience.
+                </p>
+              </div>
 
-              <div className="mt-6 text-sm font-semibold text-funeka-charcoal">Vision</div>
-              <p className="mt-3 text-funeka-midGrey leading-relaxed">
-                To be the leading recruitment partner that clients and candidates always choose to connect with.
-              </p>
+              <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-pop/30 hover:bg-white transition-all group">
+                <div className="h-1.5 w-12 bg-funeka-pop rounded-full mb-8 group-hover:w-20 transition-all duration-500"></div>
+                <h3 className="text-3xl font-black text-funeka-anchor mb-6 uppercase tracking-tight">Vision</h3>
+                <p className="text-funeka-text/70 leading-relaxed font-medium text-xl">
+                  To be the leading recruitment partner that clients and candidates always choose to connect with for strategic technical placements.
+                </p>
+              </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-funeka-dividerGrey shadow-soft">
-              <img src={mvImg} alt="Mission and vision" className="h-full w-full object-cover" />
+            <div className="relative">
+              <div className="absolute -inset-10 bg-funeka-brand/5 rounded-[4rem] blur-3xl transform -rotate-6"></div>
+              <img src={mvImg} alt="Mission and vision" className="relative rounded-[3rem] shadow-2xl border-8 border-white" />
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="border-y border-funeka-dividerGrey bg-funeka-lightBlueTint py-12">
-        <Container>
-          <SectionHeading title="Our values" subtitle="The behaviours that shape how we deliver recruitment services." />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((v) => (
-              <div key={v} className="rounded-xl border border-funeka-dividerGrey bg-white p-5 shadow-soft">
-                <div className="text-sm font-semibold text-funeka-charcoal">{v}</div>
+      <section className="border-y border-funeka-divider bg-funeka-anchor py-32 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-funeka-brand/5 rounded-full blur-[100px] -ml-48 -mt-48"></div>
+        <Container className="relative z-10">
+          <SectionHeading title="Operational Values" subtitle="The professional behaviours that shape how we deliver recruitment excellence." className="text-white" />
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-20">
+            {values.map((v, i) => (
+              <div key={v} className="group rounded-[2rem] border-2 border-white/5 bg-white/5 p-10 shadow-sm hover:shadow-2xl hover:border-funeka-pop/30 transition-all">
+                <div className="flex items-center gap-6">
+                  <div className="h-14 w-14 rounded-2xl bg-white/10 text-funeka-pop flex items-center justify-center text-xl font-black group-hover:bg-funeka-pop group-hover:text-funeka-anchor transition-all duration-500">
+                    {i+1}
+                  </div>
+                  <div className="text-2xl font-black text-white uppercase tracking-tight">{v}</div>
+                </div>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="py-12">
+      <section className="py-32 bg-white">
         <Container>
-          <SectionHeading title="What we do" subtitle="A practical overview for employers and candidates." />
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-funeka-charcoal">For employers</div>
-              <p className="mt-3 text-funeka-midGrey leading-relaxed">
-                We support hiring by sourcing and screening candidates, coordinating interviews, and assisting with placement — aligned to your role requirements, culture and performance expectations.
+          <SectionHeading title="Service Delivery" subtitle="A practical overview of our strategic commitments." />
+          <div className="grid gap-10 lg:grid-cols-2 mt-20">
+            <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-brand/30 hover:bg-white transition-all group">
+              <div className="h-16 w-16 rounded-2xl bg-funeka-anchor text-funeka-brand flex items-center justify-center mb-8 group-hover:bg-funeka-pop group-hover:text-white transition-all">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3 className="text-3xl font-black text-funeka-anchor mb-6 uppercase tracking-tight">For Partners</h3>
+              <p className="text-funeka-text/60 leading-relaxed font-medium mb-10 text-lg">
+                We support your operations by sourcing technical talent, coordinating rigorous screenings, and assisting with placement — aligned to your specific role requirements and culture.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-funeka-midGrey">
-                <li>• Role briefing and mining-specific needs analysis</li>
-                <li>• Candidate sourcing from specialized databases</li>
-                <li>• Shortlisting and interview coordination</li>
-                <li>• Documentation and placement follow-up</li>
+              <ul className="space-y-5">
+                {[
+                  "Mining-specific needs analysis",
+                  "Candidate sourcing from technical databases",
+                  "Structured shortlisting protocols",
+                  "Documentation and retention follow-up"
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-4 text-funeka-anchor font-black text-xs uppercase tracking-[0.1em]">
+                    <div className="h-2 w-2 rounded-full bg-funeka-brand"></div>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-funeka-charcoal">For candidates</div>
-              <p className="mt-3 text-funeka-midGrey leading-relaxed">
-                We help you access opportunities by matching your skills to available roles and supporting your application journey with professional communication and feedback where possible.
+            <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-pop/30 hover:bg-white transition-all group">
+              <div className="h-16 w-16 rounded-2xl bg-funeka-anchor text-funeka-pop flex items-center justify-center mb-8 group-hover:bg-funeka-pop group-hover:text-white transition-all">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              </div>
+              <h3 className="text-3xl font-black text-funeka-anchor mb-6 uppercase tracking-tight">For Specialists</h3>
+              <p className="text-funeka-text/60 leading-relaxed font-medium mb-10 text-lg">
+                We bridge your technical skills to elite industrial roles, supporting your career journey with professional communication and transparent strategic feedback.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-funeka-midGrey">
-                <li>• Browse available roles</li>
-                <li>• Apply online or submit your CV</li>
-                <li>• Interview scheduling support</li>
-                <li>• POPIA-aware handling of your personal information</li>
+              <ul className="space-y-5">
+                {[
+                  "Exclusive mining & industrial roles",
+                  "Secure, POPIA-compliant portal",
+                  "Professional interview coaching",
+                  "Strategic database for future matches"
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-4 text-funeka-anchor font-black text-xs uppercase tracking-[0.1em]">
+                    <div className="h-2 w-2 rounded-full bg-funeka-pop"></div>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

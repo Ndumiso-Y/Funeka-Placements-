@@ -16,40 +16,45 @@ export default function Employers() {
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-funeka-dividerGrey h-[400px] sm:h-[500px]">
+      <section className="relative overflow-hidden border-b border-funeka-anchor h-[450px] sm:h-[650px] flex items-center">
         <div className="absolute inset-0">
           <img src={hero} alt="Employers" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
         </div>
-        <Container className="relative h-full flex items-center py-14">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-funeka-vibrantBlue/10 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white shadow-sm mb-4 uppercase tracking-wider">
-              For Mining & Industrial Partners
+        <Container className="relative z-10">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl px-4 py-1.5 text-[10px] font-black text-funeka-brand shadow-2xl uppercase tracking-[0.2em] mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-funeka-pop"></span>
+              Strategic Industrial Partnership
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-xl">Hire Talent</h1>
-            <p className="mt-4 max-w-2xl text-lg text-white/95 leading-relaxed drop-shadow-md">
-              A recruitment partner that saves your time, protects your reputation, and supports better hiring outcomes. We provide specialized staffing solutions for the mining and industrial sectors.
+            <h1 className="text-6xl font-black text-white sm:text-[9rem] drop-shadow-2xl uppercase leading-[0.85] tracking-tighter">
+              SCALE <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">TALENT</span>
+            </h1>
+            <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
+              We save your time, protect your reputation, and support better hiring outcomes in the most demanding technical sectors.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button as="a" href="#recruit-form" className="bg-white text-funeka-charcoal hover:bg-funeka-softBlue">Submit Requirement</Button>
-              <Button as={NavLink} to="/process" variant="ghost" className="border-white text-white hover:bg-white/10">View 12-Step Process</Button>
+            <div className="mt-12 flex flex-wrap gap-5">
+              <Button as="a" href="#recruit-form" variant="pop" className="px-12 py-5 text-lg">Submit Requirement</Button>
+              <Button as={NavLink} to="/process" variant="outline" className="px-12 py-5 text-lg">Our 12-Step Process</Button>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="py-24 bg-funeka-bg">
         <Container>
           <SectionHeading
-            title="Strategic recruitment partnership"
+            title="Recruitment Excellence"
             subtitle="Expertly sourcing and placing talent in specialized mining and technical roles."
           />
-          <div className="grid gap-8 lg:grid-cols-3 mt-12">
+          <div className="grid gap-8 lg:grid-cols-3 mt-16">
             {[
               {
-                title: "Role alignment & cultural fit",
+                title: "Role alignment & fit",
                 text:
-                  "We clarify role expectations and align candidate profiles to both skills and culture fit — helping you hire for performance and retention in demanding environments.",
+                  "We clarify role expectations and align candidate profiles to both skills and culture fit — helping you hire for performance and retention.",
               },
               {
                 title: "Clear communication",
@@ -57,114 +62,116 @@ export default function Employers() {
                   "You receive regular updates, structured shortlists and clear next steps. Keeping hiring decisions moving without unnecessary delays.",
               },
               {
-                title: "Flexible staffing solutions",
+                title: "Flexible solutions",
                 text:
                   "Permanent, temporary, contract and labour hosting solutions depending on your operational needs and timelines.",
               },
             ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-funeka-dividerGrey bg-white p-8 shadow-soft hover:shadow-xl transition-shadow border-b-4 border-b-funeka-vibrantBlue">
-                <div className="text-lg font-bold text-funeka-charcoal mb-4">{card.title}</div>
-                <p className="text-funeka-midGrey leading-relaxed">{card.text}</p>
+              <div key={card.title} className="rounded-[2.5rem] border-2 border-funeka-divider bg-white p-12 shadow-sm hover:shadow-2xl hover:border-funeka-pop/30 transition-all group">
+                <div className="h-1.5 w-12 bg-funeka-brand rounded-full mb-8 group-hover:bg-funeka-pop group-hover:w-20 transition-all duration-500"></div>
+                <h3 className="text-2xl font-black text-funeka-anchor mb-6 uppercase tracking-tight leading-tight">{card.title}</h3>
+                <p className="text-funeka-text/70 leading-relaxed font-medium text-lg">{card.text}</p>
               </div>
             ))}
           </div>
 
-          <div id="recruit-form" className="mt-20 scroll-mt-24">
-            <div className="bg-white rounded-3xl border border-funeka-dividerGrey shadow-2xl overflow-hidden">
-              <div className="bg-funeka-charcoal p-8 text-white">
-                <h2 className="text-2xl font-bold">Recruitment Requirement Form</h2>
-                <p className="mt-2 text-white/80">Tell us about your hiring needs and we will get back to you with a structured proposal.</p>
+          <div id="recruit-form" className="mt-24 scroll-mt-24">
+            <div className="bg-white rounded-[3rem] border-4 border-funeka-divider shadow-2xl overflow-hidden group">
+              <div className="bg-funeka-anchor p-10 lg:p-16 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-funeka-pop/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+                <div className="relative z-10">
+                  <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tighter">Requirement Brief</h2>
+                  <p className="mt-4 text-xl text-white/60 font-medium"> Sharon or Ruth will review your requirements and provide a structured proposal.</p>
+                </div>
               </div>
-              <div className="p-8 lg:p-12">
-                {/* Recruitment Form will be injected here */}
+              <div className="p-10 lg:p-16">
                 {submitted ? (
-                  <div className="text-center py-12">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 mb-6">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  <div className="text-center py-20">
+                    <div className="inline-flex items-center justify-center w-24 h-24 rounded-[2rem] bg-green-50 text-green-600 mb-8 border-2 border-green-100 shadow-xl">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-funeka-charcoal mb-4">Request Submitted</h3>
-                    <p className="text-funeka-midGrey max-w-md mx-auto leading-relaxed">
-                      Thank you for your recruitment request. Sharon or Ruth will review your requirements and get back to you with a structured proposal shortly.
+                    <h3 className="text-4xl font-black text-funeka-anchor mb-4 uppercase tracking-tighter">Request Logged</h3>
+                    <p className="text-xl text-funeka-text/60 max-w-md mx-auto leading-relaxed font-medium">
+                      Thank you for your brief. Our team will analyze your requirements and reach out within 24 business hours.
                     </p>
-                    <div className="mt-8">
-                      <Button onClick={() => setSubmitted(false)} variant="ghost">Submit Another Request</Button>
+                    <div className="mt-10">
+                      <Button onClick={() => setSubmitted(false)} variant="ghost" className="px-10 py-4">New Request</Button>
                     </div>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
-                    <div className="space-y-4">
+                  <form onSubmit={handleSubmit} className="grid gap-10 md:grid-cols-2">
+                    <div className="space-y-8">
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Company Name</label>
-                        <input required type="text" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="e.g. Acme Mining Corp" />
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Company Details</label>
+                        <input required type="text" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="Organization Name" />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Contact Person</label>
-                        <input required type="text" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="Full name" />
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Contact Person</label>
+                        <input required type="text" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="Full name & Title" />
                       </div>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Email Address</label>
-                          <input required type="email" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="email@company.co.za" />
+                          <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Email</label>
+                          <input required type="email" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="email@company.co.za" />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Contact Number</label>
-                          <input required type="tel" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="012 345 6789" />
+                          <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Direct Phone</label>
+                          <input required type="tel" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="012 345 6789" />
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Role / Job Title</label>
-                        <input required type="text" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="e.g. Senior Shift Boss" />
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Target Role</label>
+                        <input required type="text" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="e.g. Senior Mine Engineer" />
                       </div>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Number of Positions</label>
-                          <input required type="number" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="1" min="1" />
+                          <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Headcount</label>
+                          <input required type="number" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="1" min="1" />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Location</label>
-                          <input required type="text" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="e.g. Rustenburg" />
+                          <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Location</label>
+                          <input required type="text" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="Site / Region" />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Employment Type</label>
-                        <select className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition bg-white">
-                          <option>Permanent</option>
-                          <option>Temporary</option>
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Placement Type</label>
+                        <select className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30 appearance-none">
+                          <option>Permanent Placement</option>
+                          <option>Temporary Staffing</option>
+                          <option>Contract / Fixed-term</option>
+                          <option>Labour Hosting</option>
                         </select>
                       </div>
                     </div>
 
-                    <div className="md:col-span-2 grid gap-6 md:grid-cols-2">
+                    <div className="md:col-span-2 grid gap-10 md:grid-cols-2">
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Preferred Start Date</label>
-                        <input required type="date" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" />
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Target Start Date</label>
+                        <input required type="date" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Expected Recruitment Timeline</label>
-                        <input required type="text" className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="e.g. Within 2 weeks" />
+                        <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Hiring Timeline</label>
+                        <input required type="text" className="w-full rounded-2xl border-2 border-funeka-divider p-4 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="e.g. Urgent / Within 1 Month" />
                       </div>
                     </div>
 
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Job Description / Requirements</label>
-                      <textarea required rows={4} className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="Briefly describe the key responsibilities and requirements..."></textarea>
+                      <label className="block text-[10px] font-black text-funeka-anchor uppercase tracking-[0.2em] mb-3">Role Requirements & Expectations</label>
+                      <textarea required rows={6} className="w-full rounded-2xl border-2 border-funeka-divider p-5 text-sm font-bold focus:border-funeka-pop outline-none transition bg-funeka-bg/30" placeholder="Outline technical skills, certifications, and key deliverables..."></textarea>
                     </div>
 
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-funeka-charcoal mb-1">Additional Notes</label>
-                      <textarea rows={2} className="w-full rounded-xl border border-funeka-dividerGrey p-3 text-sm focus:ring-2 focus:ring-funeka-vibrantBlue outline-none transition" placeholder="Any other details we should know?"></textarea>
-                    </div>
-
-                    <div className="md:col-span-2 pt-4">
-                      <Button type="submit" className="w-full py-4 text-base font-bold shadow-lg shadow-funeka-vibrantBlue/20">
-                        Submit Recruitment Request
+                    <div className="md:col-span-2 pt-6">
+                      <Button type="submit" variant="pop" className="w-full py-6 text-xl font-black shadow-2xl shadow-funeka-pop/30">
+                        Submit Strategic Brief
                       </Button>
-                      <p className="mt-4 text-xs text-center text-funeka-midGrey">
-                        By submitting this form, you agree to our privacy policy and POPIA compliance protocols. Enquiries are routed to Sharon and Ruth.
-                      </p>
+                      <div className="mt-8 flex items-center justify-center gap-4 text-[10px] font-black text-funeka-text/30 uppercase tracking-[0.2em]">
+                        <span className="h-px w-8 bg-funeka-divider"></span>
+                        Sharon & Ruth review all submissions
+                        <span className="h-px w-8 bg-funeka-divider"></span>
+                      </div>
                     </div>
                   </form>
                 )}

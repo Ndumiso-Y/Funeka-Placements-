@@ -4,84 +4,95 @@ import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
 import hero from "../assets/images/candidates-hero.png.webp";
 import howToApply from "../assets/images/HowToApply.png.webp";
-
+ 
 export default function Candidates() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-funeka-dividerGrey h-[400px] sm:h-[500px]">
+      <section className="relative overflow-hidden border-b border-funeka-anchor h-[450px] sm:h-[650px] flex items-center">
         <div className="absolute inset-0">
           <img src={hero} alt="Candidates" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
         </div>
-        <Container className="relative h-full flex items-center py-14">
-          <div className="max-w-2xl">
-             <div className="inline-flex items-center rounded-full border border-white/20 bg-funeka-vibrantBlue/10 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white shadow-sm mb-4 uppercase tracking-wider">
-              Launch Your Mining or Industrial Career
+        <Container className="relative z-10">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl px-4 py-1.5 text-[10px] font-black text-funeka-brand shadow-2xl uppercase tracking-[0.2em] mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-funeka-pop animate-pulse"></span>
+              Join the Strategic Talent Pipeline
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-xl">For Candidates</h1>
-            <p className="mt-4 max-w-2xl text-lg text-white/95 leading-relaxed drop-shadow-md">
-              Your next career move in mining and industry starts here. Access specialized roles, receive clear feedback, and join our elite candidate database.
+            <h1 className="text-6xl font-black text-white sm:text-[9rem] drop-shadow-2xl uppercase leading-[0.85] tracking-tighter">
+              ELEVATE <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">CAREER</span>
+            </h1>
+            <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
+              Access exclusive mining and technical roles. Join our database for specialized career growth and professional placement.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button as={NavLink} to="/jobs" className="px-8">View Open Roles</Button>
-              <Button as={NavLink} to="/apply" variant="dark" className="bg-funeka-vibrantBlue hover:bg-funeka-deepBlue px-8">Submit Your CV</Button>
+            <div className="mt-12 flex flex-wrap gap-5">
+              <Button as={NavLink} to="/jobs" variant="primary" className="px-12 py-5 text-lg">Explore Roles</Button>
+              <Button as={NavLink} to="/apply" variant="pop" className="px-12 py-5 text-lg shadow-funeka-pop/40">Submit Your CV</Button>
             </div>
           </div>
         </Container>
       </section>
-
-      <section className="py-20 -mt-20 sm:-mt-32 relative z-10">
+ 
+      <section className="py-24 -mt-24 sm:-mt-40 relative z-10">
         <Container>
-          <div className="bg-white rounded-3xl border border-funeka-dividerGrey shadow-2xl p-8 lg:p-12">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold text-funeka-charcoal mb-4">How to get started</h2>
-              <p className="text-funeka-midGrey text-lg">Four simple steps to connect with top mining and industrial employers.</p>
+          <div className="bg-white rounded-[3rem] border-4 border-funeka-divider shadow-2xl p-10 lg:p-20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-funeka-brand/5 rounded-full blur-[100px] -mr-32 -mt-32 group-hover:bg-funeka-pop/10 transition-all duration-700"></div>
+            
+            <div className="max-w-3xl mx-auto text-center mb-20 relative z-10">
+              <div className="h-1.5 w-12 bg-funeka-pop rounded-full mx-auto mb-8"></div>
+              <h2 className="text-4xl sm:text-6xl font-black text-funeka-anchor uppercase tracking-tighter mb-6">Candidate Roadmap</h2>
+              <p className="text-funeka-text/60 text-xl font-medium">Strategic steps to connect with global industrial leaders.</p>
             </div>
-
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div className="space-y-8">
+ 
+            <div className="grid gap-20 lg:grid-cols-2 lg:items-center relative z-10">
+              <div className="space-y-12">
                 {[
                   {
                     step: "01",
-                    title: "Explore Opportunities",
+                    title: "Strategic Discovery",
                     text: "Browse our specialized job listings focusing on mining, technical, and industrial roles in South Africa."
                   },
                   {
                     step: "02",
-                    title: "Review & Match",
-                    text: "Check responsibilities and requirements carefully. We prioritize candidate-to-role alignment for long-term success."
+                    title: "Precision Matching",
+                    text: "We prioritize candidate-to-role alignment. Our team analyzes every CV for technical competence and cultural fit."
                   },
                   {
                     step: "03",
-                    title: "Submit & Consent",
-                    text: "Apply via our secure portal. Our process is POPIA-compliant, ensuring your personal information is handled with care."
+                    title: "Secure Application",
+                    text: "Apply via our secure, POPIA-compliant portal. Your data is handled with the highest level of professional confidentiality."
                   },
                   {
                     step: "04",
-                    title: "Stay Connected",
-                    text: "Once you're in our database, our recruiters will match your profile against new requirements as they arise."
+                    title: "Feedback Loop",
+                    text: "Receive regular updates and professional insights through our structured interview and onboarding cycles."
                   }
-                ].map((item) => (
-                  <div key={item.step} className="flex gap-6 group">
-                    <div className="flex-shrink-0 text-4xl font-black text-funeka-dividerGrey group-hover:text-funeka-vibrantBlue transition-colors duration-300 leading-none">
-                      {item.step}
+                ].map((s, i) => (
+                  <div key={i} className="flex gap-10 group/step">
+                    <div className="flex flex-col items-center">
+                      <div className="h-16 w-16 rounded-[1.5rem] bg-funeka-anchor text-funeka-pop flex items-center justify-center text-2xl font-black shadow-xl group-hover/step:bg-funeka-pop group-hover/step:text-white transition-all duration-500 transform group-hover/step:rotate-12">
+                        {s.step}
+                      </div>
+                      {i < 3 && <div className="w-1.5 flex-1 bg-funeka-divider my-3 rounded-full"></div>}
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-funeka-charcoal mb-2">{item.title}</h4>
-                      <p className="text-funeka-midGrey leading-relaxed">{item.text}</p>
+                    <div className="pt-2">
+                      <h3 className="text-3xl font-black text-funeka-anchor mb-4 uppercase tracking-tight group-hover/step:text-funeka-pop transition-colors">{s.title}</h3>
+                      <p className="text-funeka-text/60 leading-relaxed font-medium text-lg">{s.text}</p>
                     </div>
                   </div>
                 ))}
-
-                <div className="pt-6 flex flex-wrap gap-4">
-                  <Button as={NavLink} to="/jobs" className="px-10 py-4 shadow-lg shadow-funeka-vibrantBlue/20 bg-funeka-vibrantBlue hover:bg-funeka-deepBlue border-none text-white">Find Jobs</Button>
-                  <Button as={NavLink} to="/apply" variant="ghost" className="px-10 py-4 border-funeka-dividerGrey text-funeka-charcoal hover:bg-funeka-lightBlueTint">Submit CV</Button>
+ 
+                <div className="pt-12 flex flex-wrap gap-5">
+                  <Button as={NavLink} to="/jobs" variant="primary" className="px-12 py-5 shadow-2xl shadow-funeka-anchor/20">Find Roles</Button>
+                  <Button as={NavLink} to="/apply" variant="ghost" className="px-12 py-5">Register CV</Button>
                 </div>
               </div>
-
+ 
               <div className="relative">
-                <div className="absolute -inset-4 bg-funeka-vibrantBlue/5 rounded-3xl blur-2xl transform rotate-3" />
-                <div className="relative rounded-2xl overflow-hidden border border-funeka-dividerGrey shadow-xl">
+                <div className="absolute -inset-10 bg-funeka-brand/10 rounded-full blur-[100px] transform rotate-12" />
+                <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
                   <img src={howToApply} alt="How to apply" className="w-full h-auto object-cover" />
                 </div>
               </div>
@@ -89,34 +100,35 @@ export default function Candidates() {
           </div>
         </Container>
       </section>
-
-      <section className="py-20 bg-funeka-lightBlueTint/50">
+ 
+      <section className="py-32 bg-funeka-bg border-t border-funeka-divider">
         <Container>
           <SectionHeading
-            title="What to expect from Funeka"
-            subtitle="Professionalism, transparency, and respect for your time and data."
+            title="Professional Protocol"
+            subtitle="Expertise, transparency, and deep respect for your technical career."
           />
-          <div className="grid gap-8 lg:grid-cols-3 mt-12">
+          <div className="grid gap-10 lg:grid-cols-3 mt-20">
             {[
               {
-                title: "POPIA-aware handling",
+                title: "POPIA Compliance",
                 text:
-                  "Your personal information is used only for recruitment purposes and shared only when necessary and lawful.",
+                  "Your personal information is encrypted and used strictly for strategic recruitment purposes only.",
               },
               {
-                title: "Clear communication",
+                title: "Candidate Advocacy",
                 text:
-                  "You receive regular updates, structured shortlists and clear next steps. Keeping hiring decisions moving without unnecessary delays.",
+                  "We act as your professional bridge to employers, ensuring your skills are presented with authority.",
               },
               {
-                title: "Strategic alignment",
+                title: "Industry Insight",
                 text:
-                  "We match skills, role requirements and culture fit so you apply for opportunities that make sense for your career goals.",
+                  "We match your technical skills to roles that offer the best long-term stability and career growth path.",
               },
             ].map((c) => (
-              <div key={c.title} className="rounded-2xl border border-funeka-dividerGrey bg-white p-8 shadow-soft hover:shadow-lg transition-all border-t-4 border-t-funeka-vibrantBlue">
-                <div className="text-lg font-bold text-funeka-charcoal mb-4">{c.title}</div>
-                <p className="text-funeka-midGrey leading-relaxed">{c.text}</p>
+              <div key={c.title} className="rounded-[2.5rem] border-2 border-funeka-divider bg-white p-12 shadow-sm hover:shadow-2xl hover:border-funeka-pop/30 transition-all group">
+                <div className="h-1.5 w-12 bg-funeka-brand rounded-full mb-10 group-hover:bg-funeka-pop group-hover:w-20 transition-all duration-500"></div>
+                <h3 className="text-2xl font-black text-funeka-anchor mb-6 uppercase tracking-tight leading-tight">{c.title}</h3>
+                <p className="text-funeka-text/70 leading-relaxed font-medium text-lg">{c.text}</p>
               </div>
             ))}
           </div>

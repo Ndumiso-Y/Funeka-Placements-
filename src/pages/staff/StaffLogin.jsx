@@ -30,74 +30,87 @@ export default function StaffLogin() {
   }
 
   return (
-    <div className="py-12">
+    <div className="py-24 bg-funeka-bg min-h-screen flex items-center">
       <Container>
-        <div className="max-w-xl">
-          <h1 className="text-3xl font-semibold text-funeka-charcoal">Staff Login</h1>
-          <p className="mt-3 text-funeka-midGrey leading-relaxed">
-            Admin-created accounts only. No public self-signup.
-          </p>
-
-          <div className="mt-6 rounded-2xl border border-funeka-dividerGrey bg-funeka-lightBlueTint p-5 text-sm text-funeka-midGrey">
-            <div className="font-semibold text-funeka-charcoal">Starter access (for testing)</div>
-            <div className="mt-2">Email: <span className="font-medium">admin@funekaplacements.co.za</span></div>
-            <div>Password: <span className="font-medium">Funeka@123</span></div>
-            <div className="mt-2">
-              Replace with real authentication (Supabase/Firebase/API) for production.
-            </div>
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-black text-funeka-anchor uppercase tracking-tighter mb-4">Staff <span className="text-funeka-brand">Login</span></h1>
+            <p className="text-lg text-funeka-text font-medium">
+              Authorized access only. Secure recruitment management portal.
+            </p>
           </div>
 
-          <form onSubmit={onSubmit} className="mt-6 rounded-2xl border border-funeka-dividerGrey bg-white p-6 shadow-soft">
-            <div className="grid gap-4">
+          <div className="rounded-[2.5rem] border-2 border-funeka-divider bg-white p-12 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-funeka-pop/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div className="mb-10 rounded-2xl border-2 border-funeka-pop/20 bg-funeka-pop/5 p-6 text-sm text-funeka-text">
+              <div className="font-black text-funeka-pop uppercase tracking-widest mb-3">System Access Check</div>
+              <div className="space-y-1 font-bold">
+                <div className="flex justify-between border-b border-funeka-pop/10 pb-2">
+                  <span>Environment</span>
+                  <span className="text-funeka-anchor">Phase 1 Foundation</span>
+                </div>
+                <div className="flex justify-between pt-2">
+                  <span>Default User</span>
+                  <span className="text-funeka-anchor underline">admin@funekaplacements.co.za</span>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={onSubmit} className="space-y-6">
               <div>
-                <label className="text-sm font-medium text-funeka-charcoal">Email</label>
+                <label className="text-xs font-black text-funeka-anchor uppercase tracking-[0.2em] mb-2 block">Email Address</label>
                 <input
                   type="email"
-                  className="mt-1 w-full rounded-xl border border-funeka-dividerGrey px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-funeka-blueHover"
+                  className="w-full rounded-2xl border-2 border-funeka-divider px-5 py-4 text-sm font-bold focus:outline-none focus:border-funeka-brand transition-colors bg-funeka-bg/30"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@funeka.co.za"
                   required
                 />
               </div>
               <div>
-                <label className="text-sm font-medium text-funeka-charcoal">Password</label>
+                <label className="text-xs font-black text-funeka-anchor uppercase tracking-[0.2em] mb-2 block">Secret Password</label>
                 <input
                   type="password"
-                  className="mt-1 w-full rounded-xl border border-funeka-dividerGrey px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-funeka-blueHover"
+                  className="w-full rounded-2xl border-2 border-funeka-divider px-5 py-4 text-sm font-bold focus:outline-none focus:border-funeka-brand transition-colors bg-funeka-bg/30"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
                   required
                 />
               </div>
 
               {err ? (
-                <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+                <div className="rounded-xl border-2 border-red-100 bg-red-50 px-4 py-3 text-sm font-bold text-red-600 animate-shake">
                   {err}
                 </div>
               ) : null}
 
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <Button type="submit">Login</Button>
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <Button type="submit" className="w-full sm:w-auto px-12 py-4 shadow-xl shadow-funeka-brand/30">Enter Portal</Button>
                 <button
                   type="button"
                   onClick={() => setShowForgot(true)}
-                  className="text-sm text-funeka-charcoal hover:underline"
+                  className="text-xs font-black text-funeka-anchor/40 hover:text-funeka-anchor uppercase tracking-[0.2em] transition-colors"
                 >
-                  Forgot password?
+                  Forgot access?
                 </button>
               </div>
 
-              <div className="text-xs text-funeka-midGrey">
-                Back to <NavLink className="hover:underline" to="/">Home</NavLink>
+              <div className="pt-8 border-t border-funeka-divider text-center">
+                <NavLink className="text-xs font-black text-funeka-brand uppercase tracking-[0.2em] hover:text-funeka-deepBlue transition-colors" to="/">
+                  ← Back to main site
+                </NavLink>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </Container>
 
       {showForgot ? (
         <Modal title="Forgot password" onClose={() => setShowForgot(false)}>
-          <p className="text-sm text-funeka-midGrey leading-relaxed">
+          <p className="text-sm text-funeka-text leading-relaxed">
             For this Phase 1 foundation, password resets are managed by an admin.
             Please email{" "}
             <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">

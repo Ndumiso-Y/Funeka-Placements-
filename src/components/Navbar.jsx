@@ -21,15 +21,22 @@ function LinkItem({ to, label, onClick }) {
       to={to}
       onClick={onClick}
       className={({ isActive }) =>
-        `rounded-lg px-3 py-2 text-sm transition ${
+        `relative px-3 py-2 text-[11px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${
           isActive
-            ? "bg-funeka-lightBlueTint text-funeka-charcoal"
-            : "text-funeka-charcoal hover:bg-funeka-lightBlueTint"
+            ? "text-funeka-anchor"
+            : "text-funeka-anchor/60 hover:text-funeka-anchor"
         }`
       }
       end={to === "/"}
     >
-      {label}
+      {({ isActive }) => (
+        <>
+          {label}
+          {isActive && (
+            <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-funeka-pop rounded-full shadow-[0_0_8px_rgba(229,159,26,0.5)]" />
+          )}
+        </>
+      )}
     </NavLink>
   );
 }
@@ -43,30 +50,30 @@ export default function Navbar() {
   }, [location.pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-funeka-dividerGrey bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-funeka-divider bg-white/95 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between !max-w-none px-4 lg:px-8">
         <NavLink to="/" className="flex items-center gap-4 group">
-          <img src={logo} alt="Funeka Placements" className="h-14 w-14 rounded-xl border border-funeka-dividerGrey bg-white p-1.5 shadow-sm group-hover:shadow-md transition-shadow" />
+          <img src={logo} alt="Funeka Placements" className="h-14 w-14 rounded-xl border border-funeka-divider bg-white p-1.5 shadow-sm group-hover:shadow-md transition-shadow" />
           <div className="leading-tight">
-            <div className="text-lg font-extrabold text-funeka-charcoal tracking-tighter">FUNEKA PLACEMENTS</div>
-            <div className="text-[10px] font-bold text-funeka-vibrantBlue uppercase tracking-[0.2em]">Recruitment Specialists</div>
+            <div className="text-xl font-black text-funeka-anchor tracking-tighter uppercase">FUNEKA <span className="text-funeka-pop">PLACEMENTS</span></div>
+            <div className="text-[10px] font-black text-funeka-anchor/50 uppercase tracking-[0.25em]">Recruitment Specialists</div>
           </div>
         </NavLink>
-
+ 
         <nav className="hidden xl:flex items-center gap-1">
           {links.map((l) => (
             <LinkItem key={l.to} to={l.to} label={l.label} />
           ))}
           <NavLink
             to="/staff/login"
-            className="ml-4 rounded-full bg-funeka-charcoal px-6 py-2 text-sm font-semibold text-white hover:bg-funeka-darkGreyHover transition shadow-sm"
+            className="ml-6 rounded-xl bg-funeka-anchor px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-funeka-pop transition-all shadow-lg shadow-funeka-anchor/20 active:scale-95"
           >
             Staff Portal
           </NavLink>
         </nav>
 
         <button
-          className="xl:hidden inline-flex items-center justify-center rounded-xl border border-funeka-dividerGrey p-2.5 hover:bg-funeka-lightBlueTint transition"
+          className="xl:hidden inline-flex items-center justify-center rounded-xl border border-funeka-divider p-2.5 hover:bg-funeka-bg transition"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -75,7 +82,7 @@ export default function Navbar() {
       </Container>
 
       {open ? (
-        <div className="md:hidden border-t border-funeka-dividerGrey bg-white">
+        <div className="md:hidden border-t border-funeka-divider bg-white">
           <Container className="py-3 flex flex-col gap-1">
             {links.map((l) => (
               <LinkItem key={l.to} to={l.to} label={l.label} onClick={() => setOpen(false)} />
@@ -83,7 +90,7 @@ export default function Navbar() {
             <NavLink
               to="/staff/login"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-xl border border-funeka-dividerGrey px-3 py-2 text-sm text-funeka-charcoal hover:bg-funeka-lightBlueTint transition"
+              className="mt-2 rounded-xl border border-funeka-divider px-3 py-2 text-sm text-funeka-anchor hover:bg-funeka-bg transition"
             >
               Staff Login
             </NavLink>

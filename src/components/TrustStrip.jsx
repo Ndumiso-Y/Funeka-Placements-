@@ -26,20 +26,20 @@ const items = [
 
 export default function TrustStrip() {
   return (
-    <section className="border-y border-funeka-dividerGrey bg-funeka-lightBlueTint">
+    <section className="border-y border-funeka-divider bg-funeka-bg">
       <Container className="py-10">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => {
             const Icon = it.icon;
             return (
-              <div key={it.title} className="rounded-xl bg-white border border-funeka-dividerGrey p-5 shadow-soft">
+              <div key={it.title} className="rounded-xl bg-white border border-funeka-divider p-5 shadow-soft">
                 <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-funeka-softBlue p-2 text-funeka-charcoal">
+                  <div className="rounded-lg bg-funeka-brand/20 p-2 text-funeka-anchor">
                     <Icon size={18} />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-funeka-charcoal">{it.title}</div>
-                    <div className="mt-1 text-sm text-funeka-midGrey leading-relaxed">{it.text}</div>
+                    <div className="text-sm font-semibold text-funeka-anchor">{it.title}</div>
+                    <div className="mt-1 text-sm text-funeka-text leading-relaxed">{it.text}</div>
                   </div>
                 </div>
               </div>
