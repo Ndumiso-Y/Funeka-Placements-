@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import TrustStrip from "../components/TrustStrip.jsx";
 import { jobs } from "../data/jobs.js";
  
-import heroImg from "../assets/images/home-hero.png.webp";
+import heroImg from "../assets/images/home-hero-v2.png";
 import servicesHeader from "../assets/images/services-header.png.webp";
 import processHero from "../assets/images/process-hero.png.webp";
  
@@ -18,23 +18,21 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-funeka-anchor h-[550px] sm:h-[750px] flex items-center">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Funeka Placements" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
         </div>
  
         <Container className="relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl px-4 py-1.5 text-[10px] font-black text-funeka-brand shadow-2xl uppercase tracking-[0.2em] mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-funeka-pop animate-pulse"></span>
-              Specialized Industrial Recruitment
+            <div className="inline-flex items-center gap-2 rounded-full bg-funeka-anchor px-4 py-2 text-[10px] font-black text-white shadow-2xl uppercase tracking-[0.3em] mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-funeka-brand animate-pulse"></span>
+              Strategic Recruitment
             </div>
  
-            <h1 className="text-6xl font-black tracking-tighter text-white sm:text-[10rem] drop-shadow-2xl uppercase leading-[0.85]">
+            <h1 className="text-6xl font-black tracking-tighter text-funeka-anchor sm:text-[10rem] drop-shadow-2xl uppercase leading-[0.85]">
               TRUSTED <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">TALENT</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-anchor to-funeka-brand">TALENT</span>
             </h1>
             
-            <p className="mt-10 text-xl sm:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl drop-shadow-lg">
+            <p className="mt-10 text-xl sm:text-2xl text-funeka-anchor/80 font-bold leading-relaxed max-w-2xl">
               "There is always a need" — We connect industry leaders with top-tier technical talent through rigorous methodology.
             </p>
  
