@@ -41,19 +41,17 @@ export default function StaffLogin() {
           </div>
 
           <div className="rounded-[2.5rem] border-2 border-funeka-divider bg-white p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-funeka-pop/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-funeka-action/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             
-            <div className="mb-10 rounded-2xl border-2 border-funeka-pop/20 bg-funeka-pop/5 p-6 text-sm text-funeka-text">
-              <div className="font-black text-funeka-pop uppercase tracking-widest mb-3">System Access Check</div>
+            <div className="mb-10 rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text">
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">System Status: Backend Pending</div>
               <div className="space-y-1 font-bold">
-                <div className="flex justify-between border-b border-funeka-pop/10 pb-2">
-                  <span>Environment</span>
-                  <span className="text-funeka-anchor">Phase 1 Foundation</span>
-                </div>
-                <div className="flex justify-between pt-2">
-                  <span>Default User</span>
-                  <span className="text-funeka-anchor underline">admin@funekaplacements.co.za</span>
-                </div>
+                <p className="text-amber-800 leading-relaxed mb-2">
+                  This portal is currently running as a high-fidelity frontend UI prototype.
+                </p>
+                <p className="text-amber-800/80 leading-relaxed text-xs">
+                  <strong>Required Setup:</strong> To enable secure login, session management, and role-based access control, this application must be integrated with a secure backend authentication provider (e.g., Supabase, Firebase Auth, or a custom Node/NextJS backend).
+                </p>
               </div>
             </div>
 

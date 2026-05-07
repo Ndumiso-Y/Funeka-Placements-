@@ -31,7 +31,7 @@ export default function Privacy() {
  
               <div className="group">
                 <div className="font-black text-funeka-anchor uppercase tracking-tight flex items-center gap-3">
-                  <div className="h-1.5 w-6 bg-funeka-pop rounded-full group-hover:w-10 transition-all"></div>
+                  <div className="h-1.5 w-6 bg-funeka-action rounded-full group-hover:w-10 transition-all"></div>
                   Purpose & Alignment
                 </div>
                 <div className="mt-4 pl-9">
@@ -51,7 +51,7 @@ export default function Privacy() {
  
               <div className="group">
                 <div className="font-black text-funeka-anchor uppercase tracking-tight flex items-center gap-3">
-                  <div className="h-1.5 w-6 bg-funeka-pop rounded-full group-hover:w-10 transition-all"></div>
+                  <div className="h-1.5 w-6 bg-funeka-action rounded-full group-hover:w-10 transition-all"></div>
                   Retention Policy
                 </div>
                 <div className="mt-4 pl-9">
@@ -66,7 +66,7 @@ export default function Privacy() {
                 </div>
                 <div className="mt-4 text-base font-medium">
                   For privacy requests or compliance questions, email{" "}
-                  <a className="text-funeka-pop font-black hover:text-funeka-anchor transition-colors border-b-2 border-funeka-pop/20" href="mailto:rustenburg@funekaplacements.co.za">
+                  <a className="text-funeka-action font-black hover:text-funeka-anchor transition-colors border-b-2 border-funeka-action/20" href="mailto:rustenburg@funekaplacements.co.za">
                     rustenburg@funekaplacements.co.za
                   </a>
                 </div>

@@ -1,351 +1,364 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "../../components/Container.jsx";
 import Button from "../../components/Button.jsx";
-import Modal from "../../components/Modal.jsx";
-import { logout, getSession } from "../../utils/auth.js";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Lock, FileText, UploadCloud, Activity, LayoutDashboard, Receipt, Users2, ClipboardCheck, Timer, BarChart3 } from "lucide-react";
 
-const ACTIVE = [
-  { key: "overview", label: "Dashboard Overview", icon: LayoutDashboard, desc: "Quick stats and shortcuts for staff.", type: "active" },
-  { key: "invoices", label: "Invoices (create/view)", icon: Receipt, desc: "Create basic invoices and view previous entries.", type: "active" },
-  { key: "docs", label: "Documents Upload", icon: UploadCloud, desc: "Upload documents (stored locally in this starter build).", type: "active" },
-  { key: "log", label: "Basic Activity Log", icon: Activity, desc: "Track recent actions captured in-browser.", type: "active" },
+const PASS = "funeka2025";
+
+// ── tiny local-storage helpers ──────────────────────────────────────────────
+function load(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+  catch { return fallback; }
+}
+function save(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+// ── seed data ────────────────────────────────────────────────────────────────
+const SEED_INVOICES = [
+  { id: "INV-001", client: "Platinum Ridge Mining", date: "2025-04-01", amount: 18500, status: "paid" },
+  { id: "INV-002", client: "Kopano Engineering",   date: "2025-04-08", amount: 9200,  status: "pending" },
+];
+const SEED_EMPLOYERS = [
+  { id: "E001", company: "Platinum Ridge Mining",  contact: "John Mokoena",  status: "Active",    lastNote: "Requirement brief received." },
+  { id: "E002", company: "Kopano Engineering",      contact: "Sara Dlamini",  status: "Follow-up", lastNote: "Shortlist sent — awaiting feedback." },
+];
+const SEED_CANDIDATES = [
+  { id: "C001", name: "Thabo Nkosi",    role: "Mine Overseer",   status: "Placed",      lastNote: "Started 2025-03-01." },
+  { id: "C002", name: "Lerato Sithole", role: "Auto Electrician", status: "Interviewing", lastNote: "2nd interview scheduled." },
+  { id: "C003", name: "David Mthembu",  role: "LHD Operator",    status: "In Database",  lastNote: "CV on file." },
 ];
 
-const LOCKED = [
-  { key: "pipeline", label: "Candidate Pipeline", icon: Users2, desc: "Track candidates through stages and client feedback.", type: "locked" },
-  { key: "compliance", label: "Compliance Tracking (AFIS/MIE)", icon: ClipboardCheck, desc: "Centralise compliance checks and evidence.", type: "locked" },
-  { key: "timesheets", label: "Timesheets", icon: Timer, desc: "Staff timesheets and approvals.", type: "locked" },
-  { key: "reports", label: "Reports", icon: BarChart3, desc: "Operational and client reports.", type: "locked" },
-];
-
-const STORAGE_INVOICES = "funeka_staff_invoices_v1";
-const STORAGE_LOG = "funeka_staff_log_v1";
-const STORAGE_DOCS = "funeka_staff_docs_v1";
-
-function readJSON(key, fallback) {
-  try {
-    return JSON.parse(localStorage.getItem(key) || "null") ?? fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeJSON(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
+const STATUS_COLORS = {
+  Active:        "bg-green-100 text-green-700 border-green-200",
+  "Follow-up":   "bg-yellow-100 text-yellow-700 border-yellow-200",
+  Placed:        "bg-blue-100 text-blue-700 border-blue-200",
+  Interviewing:  "bg-purple-100 text-purple-700 border-purple-200",
+  "In Database": "bg-gray-100 text-gray-600 border-gray-200",
+  paid:          "bg-green-100 text-green-700 border-green-200",
+  pending:       "bg-yellow-100 text-yellow-700 border-yellow-200",
+  overdue:       "bg-red-100 text-red-700 border-red-200",
+};
 
 export default function StaffDashboard() {
   const navigate = useNavigate();
-  const session = getSession();
+  const [tab, setTab] = useState("invoices");
 
-  const [tab, setTab] = useState("overview");
-  const [modal, setModal] = useState(null);
+  // ── invoices ─────────────────────────────────────────────────────────────
+  const [invoices, setInvoices] = useState(() => load("fp_invoices", SEED_INVOICES));
 
-  const cards = useMemo(() => [...ACTIVE, ...LOCKED], []);
-  const invoices = readJSON(STORAGE_INVOICES, []);
-  const docs = readJSON(STORAGE_DOCS, []);
-  const log = readJSON(STORAGE_LOG, []);
-
-  function pushLog(action) {
-    const entry = { at: Date.now(), action, by: session?.email || "staff" };
-    writeJSON(STORAGE_LOG, [entry, ...log].slice(0, 25));
+  function addInvoice() {
+    const client = prompt("Client name:");
+    if (!client) return;
+    const amount = parseFloat(prompt("Amount (R):") || 0);
+    const date = new Date().toISOString().split("T")[0];
+    const id = `INV-${String(invoices.length + 1).padStart(3, "0")}`;
+    const updated = [...invoices, { id, client, date, amount, status: "pending" }];
+    setInvoices(updated);
+    save("fp_invoices", updated);
   }
 
-  function createInvoice() {
-    const now = new Date();
-    const inv = {
-      id: `INV-${now.getFullYear()}-${String(invoices.length + 1).padStart(4, "0")}`,
-      client: "Example Client",
-      amount: 2500,
-      status: "Draft",
-      date: now.toISOString().slice(0, 10),
-    };
-    writeJSON(STORAGE_INVOICES, [inv, ...invoices]);
-    pushLog(`Created invoice ${inv.id}`);
-    setTab("invoices");
+  function markPaid(id) {
+    const updated = invoices.map(i => i.id === id ? { ...i, status: "paid" } : i);
+    setInvoices(updated);
+    save("fp_invoices", updated);
   }
 
-  function addDoc(name) {
-    const item = { id: crypto.randomUUID?.() || String(Date.now()), name, at: Date.now() };
-    writeJSON(STORAGE_DOCS, [item, ...docs]);
-    pushLog(`Uploaded document: ${name}`);
-    setTab("docs");
+  // ── employer tracker ──────────────────────────────────────────────────────
+  const [employers, setEmployers] = useState(() => load("fp_employers", SEED_EMPLOYERS));
+
+  function updateEmployer(id, field, value) {
+    const updated = employers.map(e => e.id === id ? { ...e, [field]: value } : e);
+    setEmployers(updated);
+    save("fp_employers", updated);
   }
 
-  function onCardClick(card) {
-    if (card.type === "locked") {
-      setModal({
-        title: "Feature preview – Coming soon / Upgrade available",
-        body: (
-          <div className="text-sm text-funeka-text leading-relaxed">
-            <p>
-              <span className="font-semibold text-funeka-anchor">{card.label}</span> is a locked preview feature in Phase 1.
-            </p>
-            <p className="mt-3">
-              This dashboard shows the full long-term system. Locked items are visual previews only — they will be activated in future phases.
-            </p>
-          </div>
-        ),
-      });
-      return;
-    }
-    setTab(card.key);
+  function addEmployer() {
+    const company = prompt("Company name:");
+    if (!company) return;
+    const contact = prompt("Contact person:") || "—";
+    const id = `E${String(employers.length + 1).padStart(3, "0")}`;
+    const updated = [...employers, { id, company, contact, status: "Active", lastNote: "" }];
+    setEmployers(updated);
+    save("fp_employers", updated);
   }
 
-  function signOut() {
-    logout();
-    navigate("/staff/login", { replace: true });
+  // ── candidate tracker ─────────────────────────────────────────────────────
+  const [candidates, setCandidates] = useState(() => load("fp_candidates", SEED_CANDIDATES));
+
+  function updateCandidate(id, field, value) {
+    const updated = candidates.map(c => c.id === id ? { ...c, [field]: value } : c);
+    setCandidates(updated);
+    save("fp_candidates", updated);
   }
+
+  function addCandidate() {
+    const name = prompt("Candidate full name:");
+    if (!name) return;
+    const role = prompt("Target role:") || "—";
+    const id = `C${String(candidates.length + 1).padStart(3, "0")}`;
+    const updated = [...candidates, { id, name, role, status: "In Database", lastNote: "" }];
+    setCandidates(updated);
+    save("fp_candidates", updated);
+  }
+
+  function logout() {
+    sessionStorage.removeItem("fp_auth");
+    navigate("/staff/login");
+  }
+
+  const TABS = [
+    { key: "invoices",   label: "Invoices" },
+    { key: "employers",  label: "Employer Tracker" },
+    { key: "candidates", label: "Candidate Tracker" },
+    { key: "jobs",       label: "Jobs Management" },
+  ];
 
   return (
-    <div className="py-10">
-      <Container>
-        <div className="flex flex-wrap items-center justify-between gap-4">
+    <div className="min-h-screen bg-funeka-bg">
+      {/* Header */}
+      <div className="bg-funeka-dark border-b border-white/10">
+        <Container className="flex items-center justify-between h-16 gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-semibold text-funeka-anchor">Staff Dashboard</h1>
-            <p className="mt-1 text-sm text-funeka-text">
-              Logged in as <span className="font-medium text-funeka-anchor">{session?.email}</span> ({session?.role})
-            </p>
+            <div className="text-base font-black text-white uppercase tracking-tight">
+              FUNEKA <span className="text-funeka-brand">PLACEMENTS</span>
+            </div>
+            <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Staff Portal</div>
           </div>
+          <button
+            onClick={logout}
+            className="text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-funeka-action transition-colors"
+          >
+            Sign Out
+          </button>
+        </Container>
+      </div>
 
-          <div className="flex flex-wrap gap-3">
-            <Button onClick={createInvoice}>Quick: Create invoice</Button>
-            <Button as={NavLink} to="/" variant="ghost">Back to website</Button>
-            <Button onClick={signOut} variant="dark">Logout</Button>
-          </div>
+      <Container className="py-10">
+        {/* Stats row */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
+          <Stat label="Total Invoices" value={invoices.length} />
+          <Stat label="Pending" value={invoices.filter(i => i.status === "pending").length} />
+          <Stat label="Active Employers" value={employers.filter(e => e.status === "Active").length} />
+          <Stat label="Candidates in Pipeline" value={candidates.filter(c => c.status !== "In Database").length} />
+          <Stat label="Total Candidates" value={candidates.length} />
+          <Stat label="Placed" value={candidates.filter(c => c.status === "Placed").length} />
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {/* Sidebar cards */}
-          <div className="lg:col-span-1">
-            <div className="rounded-2xl border border-funeka-divider bg-white p-4 shadow-soft">
-              <div className="text-sm font-semibold text-funeka-anchor">System modules</div>
-              <div className="mt-3 grid gap-2">
-                {cards.map((c) => {
-                  const Icon = c.icon;
-                  const active = tab === c.key;
-                  const locked = c.type === "locked";
-                  return (
-                    <button
-                      key={c.key}
-                      onClick={() => onCardClick(c)}
-                      className={[
-                        "w-full rounded-xl border px-4 py-3 text-left transition",
-                        active ? "border-funeka-blueHover bg-funeka-bg" : "border-funeka-divider hover:bg-funeka-bg",
-                        locked ? "opacity-60 grayscale" : "",
-                      ].join(" ")}
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className="mt-0.5 rounded-lg bg-funeka-brand/20 p-2 text-funeka-anchor">
-                          <Icon size={18} />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between gap-2">
-                            <div className="text-sm font-medium text-funeka-anchor">{c.label}</div>
-                            {locked ? (
-                              <span className="inline-flex items-center gap-1 text-xs text-funeka-text">
-                                <Lock size={14} /> Locked
-                              </span>
-                            ) : null}
-                          </div>
-                          <div className="mt-1 text-xs text-funeka-text leading-relaxed">{c.desc}</div>
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
+        {/* Tab bar */}
+        <div className="flex gap-2 flex-wrap mb-8 border-b border-funeka-divider pb-0">
+          {TABS.map(t => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              className={`px-5 py-3 text-xs font-black uppercase tracking-widest border-b-2 transition-all -mb-px ${
+                tab === t.key
+                  ? "border-funeka-action text-funeka-action"
+                  : "border-transparent text-funeka-text/50 hover:text-funeka-anchor"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* ── INVOICES ── */}
+        {tab === "invoices" && (
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h2 className="text-xl font-black text-funeka-anchor uppercase tracking-tight">Invoices</h2>
+              <Button disabled variant="primary" className="px-6 py-3 text-xs">+ Create Invoice</Button>
+            </div>
+            
+            <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <p className="text-amber-800 leading-relaxed mb-4 font-bold">
+                Invoice generation is running in local preview mode. For full capability (Save, PDF Generation, Email Dispatch), a backend service is required.
+              </p>
+              <ul className="list-disc pl-5 text-amber-800/80 font-bold space-y-1 text-xs">
+                <li>Connect database for persistent invoice storage and numbering.</li>
+                <li>Integrate a PDF generation library (e.g., Puppeteer, jsPDF).</li>
+                <li>Configure transactional email service (e.g., SendGrid, AWS SES).</li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              {invoices.length === 0 && (
+                <div className="rounded-2xl border border-funeka-divider bg-white p-8 text-center text-funeka-text/50 text-sm">
+                  No invoices yet. Click "+ Add Invoice" to create one.
+                </div>
+              )}
+              {invoices.map(inv => (
+                <div key={inv.id} className="rounded-2xl border border-funeka-divider bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <div className="text-xs font-black text-funeka-anchor/40 uppercase tracking-[0.2em] mb-1">{inv.id}</div>
+                    <div className="font-black text-funeka-anchor text-base">{inv.client}</div>
+                    <div className="text-sm text-funeka-text/60 mt-1">{inv.date}</div>
+                  </div>
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <div className="text-xl font-black text-funeka-anchor">R {Number(inv.amount).toLocaleString("en-ZA", { minimumFractionDigits: 2 })}</div>
+                    <span className={`rounded-xl border px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] ${STATUS_COLORS[inv.status] || ""}`}>
+                      {inv.status}
+                    </span>
+                    {inv.status !== "paid" && (
+                      <button
+                        onClick={() => markPaid(inv.id)}
+                        className="text-[11px] font-black uppercase tracking-widest text-funeka-action hover:text-funeka-dark transition-colors"
+                      >
+                        Mark Paid
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── EMPLOYER TRACKER ── */}
+        {tab === "employers" && (
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h2 className="text-xl font-black text-funeka-anchor uppercase tracking-tight">Employer Tracker</h2>
+              <Button disabled variant="primary" className="px-6 py-3 text-xs">+ Add Employer</Button>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-funeka-divider bg-funeka-bg p-5">
-              <div className="text-sm font-semibold text-funeka-anchor">Phase 1 notes</div>
-              <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                Active modules store data in your browser (localStorage). Locked modules open a preview modal.
+            <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <p className="text-amber-800 leading-relaxed mb-1 font-bold">
+                Employer tracking is currently running in local storage preview mode.
+              </p>
+              <p className="text-amber-800/80 leading-relaxed text-xs">
+                Requires database integration (e.g., Supabase) for secure persistence, multi-user real-time updates, and team collaboration.
               </p>
             </div>
-          </div>
-
-          {/* Main area */}
-          <div className="lg:col-span-2">
-            {tab === "overview" ? (
-              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
-                <div className="text-sm font-semibold text-funeka-anchor">Overview</div>
-                <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                  <Stat label="Invoices" value={String(invoices.length)} />
-                  <Stat label="Documents" value={String(docs.length)} />
-                  <Stat label="Activity log" value={String(log.length)} />
-                </div>
-
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-xl border border-funeka-divider p-5">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-anchor">
-                      <FileText size={16} /> Shortcuts
+            <div className="space-y-3">
+              {employers.map(e => (
+                <div key={e.id} className="rounded-2xl border border-funeka-divider bg-white p-5 sm:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                    <div>
+                      <div className="font-black text-funeka-anchor text-base">{e.company}</div>
+                      <div className="text-sm text-funeka-text/60">{e.contact}</div>
                     </div>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <Button onClick={() => setTab("invoices")} variant="ghost">Invoices</Button>
-                      <Button onClick={() => setTab("docs")} variant="ghost">Documents</Button>
-                      <Button onClick={() => setTab("log")} variant="ghost">Activity Log</Button>
-                    </div>
+                    <select
+                      value={e.status}
+                      onChange={ev => updateEmployer(e.id, "status", ev.target.value)}
+                      className={`rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.15em] outline-none cursor-pointer ${STATUS_COLORS[e.status] || "border-funeka-divider"}`}
+                    >
+                      {["Active", "Follow-up", "On Hold", "Closed"].map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
                   </div>
-
-                  <div className="rounded-xl border border-funeka-divider p-5">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-funeka-anchor">
-                      <Activity size={16} /> Recent activity
-                    </div>
-                    <div className="mt-3 text-sm text-funeka-text">
-                      {log.length === 0 ? (
-                        <div>No activity yet. Create an invoice or upload a document to generate activity.</div>
-                      ) : (
-                        <ul className="space-y-2">
-                          {log.slice(0, 5).map((l) => (
-                            <li key={l.at}>
-                              • {l.action} <span className="text-xs">({new Date(l.at).toLocaleString()})</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
+                  <textarea
+                    className="w-full rounded-xl border border-funeka-divider px-4 py-3 text-sm text-funeka-anchor font-medium resize-none focus:outline-none focus:border-funeka-action transition-colors"
+                    rows={2}
+                    placeholder="Notes..."
+                    value={e.lastNote}
+                    onChange={ev => updateEmployer(e.id, "lastNote", ev.target.value)}
+                  />
                 </div>
-              </div>
-            ) : null}
-
-            {tab === "invoices" ? (
-              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="text-sm font-semibold text-funeka-anchor">Invoices</div>
-                  <Button onClick={createInvoice}>Create invoice</Button>
-                </div>
-
-                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                  This starter build stores invoices in your browser. Replace with a backend in later phases.
-                </p>
-
-                <div className="mt-5 space-y-3">
-                  {invoices.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
-                      No invoices yet. Use “Create invoice” to add your first one.
-                    </div>
-                  ) : (
-                    invoices.map((inv) => (
-                      <div key={inv.id} className="rounded-xl border border-funeka-divider p-5">
-                        <div className="flex flex-wrap items-center justify-between gap-3">
-                          <div>
-                            <div className="text-sm font-semibold text-funeka-anchor">{inv.id}</div>
-                            <div className="mt-1 text-sm text-funeka-text">{inv.client} • {inv.date}</div>
-                          </div>
-                          <div className="text-sm text-funeka-anchor">
-                            R {Number(inv.amount).toFixed(2)} •{" "}
-                            <span className="rounded-full border border-funeka-divider bg-funeka-bg px-3 py-1 text-xs text-funeka-text">
-                              {inv.status}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            ) : null}
-
-            {tab === "docs" ? (
-              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="text-sm font-semibold text-funeka-anchor">Documents</div>
-                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-funeka-brand/20 px-4 py-2 text-sm font-medium text-funeka-anchor hover:bg-funeka-blueHover transition shadow-soft">
-                    <UploadCloud size={16} />
-                    Upload
-                    <input
-                      type="file"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (!file) return;
-                        addDoc(file.name);
-                        e.target.value = "";
-                      }}
-                    />
-                  </label>
-                </div>
-
-                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                  Document names are stored locally for this starter build.
-                </p>
-
-                <div className="mt-5 space-y-3">
-                  {docs.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
-                      No documents yet. Use “Upload” to add one.
-                    </div>
-                  ) : (
-                    docs.map((d) => (
-                      <div key={d.id} className="rounded-xl border border-funeka-divider p-5">
-                        <div className="text-sm font-semibold text-funeka-anchor">{d.name}</div>
-                        <div className="mt-1 text-sm text-funeka-text">
-                          Uploaded: {new Date(d.at).toLocaleString()}
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            ) : null}
-
-            {tab === "log" ? (
-              <div className="rounded-2xl border border-funeka-divider bg-white p-6 shadow-soft">
-                <div className="text-sm font-semibold text-funeka-anchor">Activity Log</div>
-                <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                  Recent actions (stored locally).
-                </p>
-
-                <div className="mt-5 space-y-3">
-                  {log.length === 0 ? (
-                    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5 text-sm text-funeka-text">
-                      No activity yet.
-                    </div>
-                  ) : (
-                    log.map((l) => (
-                      <div key={l.at + l.action} className="rounded-xl border border-funeka-divider p-5">
-                        <div className="text-sm text-funeka-anchor">{l.action}</div>
-                        <div className="mt-1 text-xs text-funeka-text">
-                          {new Date(l.at).toLocaleString()} • {l.by}
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            ) : null}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* ── CANDIDATE TRACKER ── */}
+        {tab === "candidates" && (
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h2 className="text-xl font-black text-funeka-anchor uppercase tracking-tight">Candidate Tracker</h2>
+              <Button disabled variant="primary" className="px-6 py-3 text-xs">+ Add Candidate</Button>
+            </div>
+
+            <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <p className="text-amber-800 leading-relaxed mb-1 font-bold">
+                Candidate tracking is currently running in local storage preview mode.
+              </p>
+              <p className="text-amber-800/80 leading-relaxed text-xs">
+                Requires database integration for secure CV file storage, persistence, and complex querying.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {candidates.map(c => (
+                <div key={c.id} className="rounded-2xl border border-funeka-divider bg-white p-5 sm:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                    <div>
+                      <div className="font-black text-funeka-anchor text-base">{c.name}</div>
+                      <div className="text-sm text-funeka-text/60 uppercase tracking-wide">{c.role}</div>
+                    </div>
+                    <select
+                      value={c.status}
+                      onChange={ev => updateCandidate(c.id, "status", ev.target.value)}
+                      className={`rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.15em] outline-none cursor-pointer ${STATUS_COLORS[c.status] || "border-funeka-divider"}`}
+                    >
+                      {["In Database", "Shortlisted", "Interviewing", "Offer Stage", "Placed", "Withdrawn"].map(s => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <textarea
+                    className="w-full rounded-xl border border-funeka-divider px-4 py-3 text-sm text-funeka-anchor font-medium resize-none focus:outline-none focus:border-funeka-action transition-colors"
+                    rows={2}
+                    placeholder="Notes..."
+                    value={c.lastNote}
+                    onChange={ev => updateCandidate(c.id, "lastNote", ev.target.value)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {/* ── JOBS MANAGEMENT ── */}
+        {tab === "jobs" && (
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h2 className="text-xl font-black text-funeka-anchor uppercase tracking-tight">Jobs Management</h2>
+              <Button disabled variant="primary" className="px-6 py-3 text-xs">+ Post New Job</Button>
+            </div>
+            
+            <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <p className="text-amber-800 leading-relaxed mb-4 font-bold">
+                Dynamic job posting is currently disabled. To enable the creation, editing, archiving, and deletion of jobs, this platform must be connected to a database (e.g., PostgreSQL via Supabase, Firebase Firestore, or MongoDB). 
+              </p>
+              <ul className="list-disc pl-5 text-amber-800/80 font-bold space-y-1 text-xs">
+                <li>Create structured job schema (Title, Location, Type, Closing Date, Description, Requirements, Status: Open/Closed).</li>
+                <li>Implement REST/GraphQL API for CRUD operations.</li>
+                <li>Migrate static jobs from `src/data/jobs.js` to the live database.</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3 opacity-60 pointer-events-none">
+              <div className="rounded-2xl border border-funeka-divider bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                 <div>
+                   <div className="font-black text-funeka-anchor text-base mb-1">Senior Underground Fitter</div>
+                   <div className="text-sm text-funeka-text/60">Rustenburg, North West • Permanent</div>
+                 </div>
+                 <div className="flex gap-4">
+                   <div className="rounded-xl border px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] bg-green-100 text-green-700 border-green-200">Open</div>
+                   <div className="text-[11px] font-black uppercase tracking-widest text-funeka-action">Edit</div>
+                 </div>
+              </div>
+              <div className="rounded-2xl border border-funeka-divider bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                 <div>
+                   <div className="font-black text-funeka-anchor text-base mb-1">Drill Rig Operator</div>
+                   <div className="text-sm text-funeka-text/60">Steelpoort, Limpopo • Temporary</div>
+                 </div>
+                 <div className="flex gap-4">
+                   <div className="rounded-xl border px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] bg-red-100 text-red-700 border-red-200">Closed</div>
+                   <div className="text-[11px] font-black uppercase tracking-widest text-funeka-action">Edit</div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        )}
       </Container>
-
-      {modal ? (
-        <Modal title={modal.title} onClose={() => setModal(null)}>
-          {modal.body}
-          <div className="mt-5 flex gap-3">
-            <Button onClick={() => setModal(null)}>Close</Button>
-            <Button
-              as="a"
-              variant="ghost"
-              href="mailto:recruitment@funekaplacements.co.za?subject=Staff%20Portal%20Upgrade%20Request%20-%20Funeka%20Placements"
-            >
-              Request upgrade
-            </Button>
-          </div>
-        </Modal>
-      ) : null}
     </div>
   );
 }
 
 function Stat({ label, value }) {
   return (
-    <div className="rounded-xl border border-funeka-divider bg-funeka-bg p-5">
-      <div className="text-xs text-funeka-text">{label}</div>
-      <div className="mt-2 text-2xl font-semibold text-funeka-anchor">{value}</div>
+    <div className="rounded-2xl border border-funeka-divider bg-white p-5 shadow-sm">
+      <div className="text-[10px] font-black text-funeka-anchor/40 uppercase tracking-[0.2em] mb-2">{label}</div>
+      <div className="text-3xl font-black text-funeka-anchor">{value}</div>
     </div>
   );
 }

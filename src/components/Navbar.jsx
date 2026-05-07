@@ -6,74 +6,87 @@ import logo from "../assets/logos/Logo-Funeka-Transparent.png";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "Company Profile" },
-  { to: "/employers", label: "Hire Talent" },
-  { to: "/candidates", label: "For Candidates" },
+  { to: "/about", label: "About" },
+  { to: "/employers", label: "Employers" },
+  { to: "/candidates", label: "Candidates" },
   { to: "/jobs", label: "Jobs" },
   { to: "/services", label: "Services" },
-  { to: "/process", label: "Process" },
   { to: "/contact", label: "Contact" },
 ];
 
-function LinkItem({ to, label, onClick }) {
-  return (
-    <NavLink
-      to={to}
-      onClick={onClick}
-      className={({ isActive }) =>
-        `relative px-3 py-2 text-[11px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${
-          isActive
-            ? "text-funeka-anchor"
-            : "text-funeka-anchor/60 hover:text-funeka-anchor"
-        }`
-      }
-      end={to === "/"}
-    >
-      {({ isActive }) => (
-        <>
-          {label}
-          {isActive && (
-            <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-funeka-pop rounded-full shadow-[0_0_8px_rgba(182,208,225,0.5)]" />
-          )}
-        </>
-      )}
-    </NavLink>
-  );
-}
-
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
+  // Toggle solid background on scroll
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
+  const heroPages = ["/", "/services", "/process", "/employers", "/candidates"];
+  const isHeroPage = heroPages.includes(location.pathname) || location.pathname === "";
+
   return (
-    <header className="sticky top-0 z-40 border-b border-funeka-divider bg-white/95 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between !max-w-none px-4 lg:px-8">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 border-b border-white/5 transition-all duration-300 ${
+        scrolled || !isHeroPage ? "bg-[#132D5D] shadow-xl" : "bg-black/10"
+      }`}
+    >
+      <Container className="flex h-20 md:h-24 items-center justify-between !max-w-none px-6 sm:px-8 lg:px-12">
         <NavLink to="/" className="flex items-center gap-4 group">
-          <img src={logo} alt="Funeka Placements" className="h-14 w-14 rounded-xl border border-funeka-divider bg-white p-1.5 shadow-sm group-hover:shadow-md transition-shadow" />
           <div className="leading-tight">
-            <div className="text-xl font-black text-funeka-anchor tracking-tighter uppercase">FUNEKA <span className="text-funeka-pop">PLACEMENTS</span></div>
-            <div className="text-[10px] font-black text-funeka-anchor/50 uppercase tracking-[0.25em]">Recruitment Specialists</div>
+            <div className="text-lg md:text-xl font-black text-white tracking-tighter uppercase">
+              FUNEKA <span className="text-funeka-brand">PLACEMENTS</span>
+            </div>
+            <div className="text-[8px] md:text-[10px] font-black text-white uppercase tracking-[0.25em]">
+              Recruitment Specialists
+            </div>
           </div>
         </NavLink>
- 
+
+        {/* Desktop navigation */}
         <nav className="hidden xl:flex items-center gap-1">
           {links.map((l) => (
-            <LinkItem key={l.to} to={l.to} label={l.label} />
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `relative px-3 py-2 text-[11px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${
+                  isActive ? "text-white" : "text-white hover:text-funeka-brand"
+                }`
+              }
+              end={l.to === "/"}
+            >
+              {({ isActive }) => (
+                <>
+                  {l.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-funeka-action rounded-full shadow-[0_0_12px_rgba(14,101,230,0.8)]" />
+                  )}
+                </>
+              )}
+            </NavLink>
           ))}
           <NavLink
             to="/staff/login"
-            className="ml-6 rounded-xl bg-funeka-anchor px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-funeka-pop transition-all shadow-lg shadow-funeka-anchor/20 active:scale-95"
+            className="ml-6 rounded-xl bg-funeka-action px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-funeka-action transition-all shadow-lg shadow-funeka-action/20"
           >
             Staff Portal
           </NavLink>
         </nav>
 
+        {/* Mobile menu toggle */}
         <button
-          className="xl:hidden inline-flex items-center justify-center rounded-xl border border-funeka-divider p-2.5 hover:bg-funeka-bg transition"
+          className="xl:hidden inline-flex items-center justify-center rounded-xl border border-white/20 p-2.5 text-white hover:bg-white/10 transition"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -81,22 +94,34 @@ export default function Navbar() {
         </button>
       </Container>
 
-      {open ? (
-        <div className="md:hidden border-t border-funeka-divider bg-white">
-          <Container className="py-3 flex flex-col gap-1">
+      {/* Mobile navigation panel */}
+      {open && (
+        <div className="md:hidden border-t border-white/10 bg-[#012E41] shadow-2xl">
+          <Container className="py-6 flex flex-col gap-2">
             {links.map((l) => (
-              <LinkItem key={l.to} to={l.to} label={l.label} onClick={() => setOpen(false)} />
+              <NavLink
+                key={l.to}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `px-4 py-3 text-sm font-bold uppercase tracking-widest rounded-xl transition-all ${
+                    isActive ? "bg-white/10 text-white" : "text-white hover:bg-white/5"
+                  }`
+                }
+              >
+                {l.label}
+              </NavLink>
             ))}
             <NavLink
               to="/staff/login"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-xl border border-funeka-divider px-3 py-2 text-sm text-funeka-anchor hover:bg-funeka-bg transition"
+              className="mt-4 rounded-xl bg-funeka-action px-4 py-4 text-center text-sm font-black uppercase tracking-widest text-white"
             >
-              Staff Login
+              Staff Portal
             </NavLink>
           </Container>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }

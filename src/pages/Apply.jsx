@@ -168,7 +168,7 @@ POPIA Consent: Yes`;
                   This starter build does not send data to a server yet. Use the “Email CV instead” button to send your details,
                   or email your CV directly to{" "}
                   <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
-                    sharon@funekaplacements.co.za or ruth@funekaplacements.co.za
+                    rustenburg@funekaplacements.co.za
                   </a>.
                 </p>
               </div>
@@ -180,7 +180,7 @@ POPIA Consent: Yes`;
             <p className="mt-2 text-sm text-funeka-text leading-relaxed">
               If you experience issues with the form, send your CV to{" "}
               <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
-                sharon@funekaplacements.co.za or ruth@funekaplacements.co.za
+                rustenburg@funekaplacements.co.za
               </a>.
             </p>
 
