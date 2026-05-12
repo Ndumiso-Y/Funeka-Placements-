@@ -45,6 +45,37 @@ export default function Process() {
         </Container>
       </section>
  
+      <section className="py-24 bg-white">
+        <Container>
+          <SectionHeading
+            title="Recruitment Process"
+            subtitle="A clear, step-by-step approach for employers and candidates from first brief through placement follow-up."
+          />
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {steps.map((step) => (
+              <div
+                key={step.n}
+                className="rounded-[2rem] border-2 border-funeka-divider bg-white p-8 shadow-sm hover:shadow-xl hover:border-funeka-action/20 transition-all group"
+              >
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-funeka-anchor text-sm font-black text-funeka-brand shadow-lg shadow-funeka-anchor/10">
+                    {String(step.n).padStart(2, "0")}
+                  </span>
+                  <div className="h-1.5 w-10 rounded-full bg-funeka-action group-hover:w-14 transition-all" />
+                </div>
+                <h3 className="text-xl font-black text-funeka-anchor uppercase tracking-tight leading-tight">
+                  {step.t}
+                </h3>
+                <p className="mt-4 text-funeka-text/70 leading-relaxed font-medium">
+                  {step.d}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="py-24 bg-funeka-bg">
         <Container>
           <div className="mt-24 rounded-[3rem] bg-funeka-anchor text-white relative overflow-hidden group">

@@ -25,6 +25,7 @@ export default function Apply() {
   function onSubmit(e) {
     e.preventDefault();
     if (!form.consent) return;
+    window.location.href = mailto;
     setSubmitted(true);
   }
 
@@ -50,7 +51,7 @@ POPIA Consent: Yes`;
       <Container>
         <SectionHeading
           title="Submit CV"
-          subtitle="Complete the form below. Uploading a CV is optional. POPIA consent is required."
+          subtitle="Prepare an email application for Funeka Placements. Attach your CV before sending from your email app."
         />
 
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -120,7 +121,7 @@ POPIA Consent: Yes`;
                   onChange={(e) => update("fileName", e.target.files?.[0]?.name || "")}
                 />
                 <div className="mt-1 text-xs text-funeka-text">
-                  Upload is stored only in your browser for this starter build. For production, connect to secure storage.
+                  Your email app may not attach this file automatically. Please attach your CV before sending.
                 </div>
               </div>
 
@@ -146,7 +147,7 @@ POPIA Consent: Yes`;
                   />
                   <span className="text-sm text-funeka-anchor leading-relaxed">
                     <span className="font-medium">Consent (required):</span>{" "}
-                    “I consent to Funeka Placements processing my personal information in line with POPIA.”
+                    "I consent to Funeka Placements processing my personal information in line with POPIA."
                   </span>
                 </label>
               </div>
@@ -154,19 +155,18 @@ POPIA Consent: Yes`;
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button type="submit" disabled={!form.consent} className={!form.consent ? "opacity-60 cursor-not-allowed" : ""}>
-                Submit
+                Prepare Email Application
               </Button>
               <Button as="a" variant="ghost" href={mailto}>
-                Email CV instead
+                Email CV Directly
               </Button>
             </div>
 
             {submitted ? (
               <div className="mt-6 rounded-2xl border border-funeka-divider bg-white p-5">
-                <div className="text-sm font-semibold text-funeka-anchor">Submission captured</div>
+                <div className="text-sm font-semibold text-funeka-anchor">Email prepared</div>
                 <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                  This starter build does not send data to a server yet. Use the “Email CV instead” button to send your details,
-                  or email your CV directly to{" "}
+                  Your email app should now open with your details prepared. Attach your CV before sending, or email your CV directly to{" "}
                   <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
                     rustenburg@funekaplacements.co.za
                   </a>.
@@ -186,10 +186,10 @@ POPIA Consent: Yes`;
 
             <div className="mt-6 text-sm font-semibold text-funeka-anchor">What to include</div>
             <ul className="mt-3 space-y-2 text-sm text-funeka-text">
-              <li>• Updated CV (PDF preferred)</li>
-              <li>• Correct contact details (email and phone)</li>
-              <li>• Your location and availability</li>
-              <li>• Role you’re applying for</li>
+              <li>- Updated CV (PDF preferred)</li>
+              <li>- Correct contact details (email and phone)</li>
+              <li>- Your location and availability</li>
+              <li>- Role you're applying for</li>
             </ul>
 
             <div className="mt-6 rounded-2xl border border-funeka-divider bg-funeka-bg p-5">

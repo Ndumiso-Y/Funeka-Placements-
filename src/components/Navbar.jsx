@@ -90,7 +90,7 @@ export default function Navbar() {
 
       {/* Mobile navigation panel */}
       {open && (
-        <div className="md:hidden border-t border-white/10 bg-[#012E41] shadow-2xl">
+        <div className="xl:hidden border-t border-white/10 bg-[#012E41] shadow-2xl">
           <Container className="py-6 flex flex-col gap-2">
             {links.map((l) => (
               <NavLink

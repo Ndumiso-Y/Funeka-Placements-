@@ -18,7 +18,8 @@ const deliverItems = [
 ];
 
 export default function Home() {
-  const latest = jobs.slice(0, 3);
+  const latest = jobs.filter((job) => job.status === "open").slice(0, 3);
+  const hasLatestJobs = latest.length > 0;
 
   // Mobile carousel state
   const [slide, setSlide] = useState(0);
@@ -262,34 +263,53 @@ export default function Home() {
                 <span className="text-funeka-brand">Opportunities</span>
               </h2>
               <p className="mt-8 text-2xl text-white/60 font-medium leading-relaxed">
-                Explore our current technical and operational roles in the mining and engineering sectors.
+                Current vacancies will appear here once published by the Funeka Placements team.
               </p>
             </div>
             <Button as={NavLink} to="/jobs" variant="outline" className="px-12 py-5 text-lg">View Open Portal</Button>
           </div>
 
-          <div className="grid gap-10 md:grid-cols-3">
-            {latest.map((job) => (
-              <NavLink
-                key={job.id}
-                to={`/jobs/${job.id}`}
-                className="group p-10 rounded-[2.5rem] bg-white/5 border-2 border-white/10 hover:bg-white/10 hover:border-funeka-action transition-all"
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <div className="h-1 w-10 bg-funeka-action rounded-full"></div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-funeka-brand">New Opening</span>
-                </div>
-                <h3 className="text-3xl font-black mb-3 leading-tight group-hover:text-funeka-brand transition-colors uppercase tracking-tighter">{job.title}</h3>
-                <div className="text-xs font-black text-white/40 uppercase tracking-[0.2em] mb-8">{job.location}</div>
-                <div className="pt-8 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-[10px] font-black text-white/60 uppercase tracking-widest">{job.employmentType}</span>
-                  <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-funeka-action group-hover:text-white transition-all shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+          {hasLatestJobs ? (
+            <div className="grid gap-10 md:grid-cols-3">
+              {latest.map((job) => (
+                <NavLink
+                  key={job.id}
+                  to={`/jobs/${job.id}`}
+                  className="group p-10 rounded-[2.5rem] bg-white/5 border-2 border-white/10 hover:bg-white/10 hover:border-funeka-action transition-all"
+                >
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="h-1 w-10 bg-funeka-action rounded-full"></div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-funeka-brand">New Opening</span>
                   </div>
-                </div>
-              </NavLink>
-            ))}
-          </div>
+                  <h3 className="text-3xl font-black mb-3 leading-tight group-hover:text-funeka-brand transition-colors uppercase tracking-tighter">{job.title}</h3>
+                  <div className="text-xs font-black text-white/40 uppercase tracking-[0.2em] mb-8">{job.location}</div>
+                  <div className="pt-8 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-[10px] font-black text-white/60 uppercase tracking-widest">{job.employmentType}</span>
+                    <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-funeka-action group-hover:text-white transition-all shadow-xl">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                    </div>
+                  </div>
+                </NavLink>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-[2.5rem] border-2 border-white/10 bg-white/5 p-10 lg:p-14 text-center">
+              <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-white">
+                No current vacancies listed yet.
+              </h3>
+              <p className="mt-5 max-w-2xl mx-auto text-lg text-white/60 font-medium leading-relaxed">
+                Submit your CV for future opportunities, or check back for verified roles once they are published.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <Button as={NavLink} to="/apply" variant="primary" className="px-10 py-4">
+                  Submit Your CV
+                </Button>
+                <Button as={NavLink} to="/jobs" variant="outline" className="px-10 py-4">
+                  View Jobs Page
+                </Button>
+              </div>
+            </div>
+          )}
         </Container>
       </section>
 

@@ -4,6 +4,9 @@ import Button from "../components/Button.jsx";
 import contactImg from "../assets/images/contact-office.png.webp";
 
 export default function Contact() {
+  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=28%20Abbie%20Str%2C%20Rustenburg";
+  const mapEmbedUrl = "https://www.google.com/maps?q=28%20Abbie%20Str%2C%20Rustenburg&output=embed";
+
   return (
     <div className="py-24 bg-funeka-bg min-h-screen">
       <Container>
@@ -106,19 +109,37 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="mt-24 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative bg-funeka-anchor h-[400px] flex items-center justify-center group">
-          <div className="absolute inset-0 bg-black/40 z-10 transition-opacity group-hover:opacity-60"></div>
-          <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://maps.googleapis.com/maps/api/staticmap?center=-25.6667,27.2333&zoom=13&size=800x400&maptype=roadmap&sensor=false')"}}></div>
-          
-          <div className="text-center relative z-20 p-8 backdrop-blur-md bg-white/10 border border-white/20 rounded-[2rem] shadow-2xl">
-            <div className="h-16 w-16 mx-auto rounded-2xl bg-funeka-action text-white flex items-center justify-center mb-6 shadow-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-2">Interactive Map</h3>
-            <p className="text-white/70 font-medium max-w-xs mx-auto">Embed live Google Maps iframe code here to activate.</p>
+        <div className="mt-24 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative bg-funeka-anchor">
+          <div className="h-[420px]">
+            <iframe
+              title="Funeka Placements location map"
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-          {/* TO ACTIVATE MAP: Uncomment below and replace src with actual Google Maps Embed URL */}
-          {/* <iframe src="YOUR_EMBED_URL_HERE" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 z-30"></iframe> */}
+          <div className="bg-funeka-anchor p-6 sm:p-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="text-[10px] font-black text-funeka-brand uppercase tracking-[0.25em] mb-2">Visit Us</div>
+              <div className="text-xl font-black text-white uppercase tracking-tighter">
+                28 Abbie Str, Rustenburg
+              </div>
+            </div>
+            <Button
+              as="a"
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              className="w-full sm:w-auto px-8 py-4"
+            >
+              Open in Google Maps
+            </Button>
+          </div>
         </div>
       </Container>
     </div>
