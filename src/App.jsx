@@ -13,12 +13,14 @@ import Process from "./pages/Process.jsx";
 import Contact from "./pages/Contact.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import NotFound from "./pages/NotFound.jsx";
-
-import StaffLogin from "./pages/staff/StaffLogin.jsx";
-import StaffDashboard from "./pages/staff/StaffDashboard.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import StaffUnavailable from "./pages/StaffUnavailable.jsx";
 
 export default function App() {
+  const pathname = typeof window !== "undefined" ? window.location.pathname.replace(/\/$/, "") : "";
+  const isDirectStaffPath = pathname === "/staff" || pathname === "/staff/login";
+
+  if (isDirectStaffPath) return <StaffUnavailable />;
+
   return (
     <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
@@ -34,10 +36,9 @@ export default function App() {
           <Route path="/process" element={<Process />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/staff/login" element={<StaffLogin />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/staff" element={<StaffDashboard />} />
-          </Route>
+          {/* Re-enable staff routes only after real backend authentication is implemented. */}
+          <Route path="/staff/login" element={<StaffUnavailable />} />
+          <Route path="/staff" element={<StaffUnavailable />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -65,7 +65,6 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap gap-6">
             <NavLink className="hover:text-funeka-action transition-colors" to="/contact">Contact</NavLink>
-            <NavLink className="hover:text-funeka-action transition-colors" to="/staff/login">Staff Portal</NavLink>
           </div>
         </Container>
       </div>

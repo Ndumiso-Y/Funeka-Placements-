@@ -6,23 +6,15 @@ const USERS_KEY = "funeka_staff_users_v1";
  * - Admin-created accounts only
  * - No public self-signup
  *
- * For now, we ship a default admin user to allow the portal to run immediately.
- * In production, replace with a real backend (Supabase / Firebase / custom API).
+ * TODO: Re-enable staff access only after integrating real backend
+ * authentication (Supabase / Firebase / custom API). Do not ship mock
+ * credentials in production.
  */
 export function seedDefaultUsers() {
   const existing = JSON.parse(localStorage.getItem(USERS_KEY) || "null");
   if (existing && Array.isArray(existing) && existing.length > 0) return;
 
-  const defaultUsers = [
-    {
-      email: "admin@funekaplacements.co.za",
-      password: "Funeka@123",
-      role: "Admin",
-      name: "Funeka Admin",
-    },
-  ];
-
-  localStorage.setItem(USERS_KEY, JSON.stringify(defaultUsers));
+  localStorage.setItem(USERS_KEY, JSON.stringify([]));
 }
 
 export function getUsers() {

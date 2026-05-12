@@ -66,14 +66,13 @@ Because this uses **HashRouter**, you do not need server rewrites for client-sid
 - `/process` Recruitment Process (12 Steps)  
 - `/contact` Contact  
 - `/privacy` POPIA & Privacy  
-- `/staff/login` Staff Login  
-- `/staff` Staff Dashboard (Protected)
+- `/staff/login` Staff Portal unavailable placeholder  
+- `/staff` Staff Portal unavailable placeholder
 
 ## Staff Portal (Phase 1 Foundation)
-- Admin-created accounts only (no public signup)
-- Starter default credentials (for immediate testing):
-  - Email: `admin@funekaplacements.co.za`
-  - Password: `Funeka@123`
+- Staff portal routes are disabled for public production until real backend authentication is implemented.
+- Do not ship mock staff credentials in production.
+- Re-enable only after integrating a secure authentication provider and role-based access control.
 - Active features:
   - Dashboard overview
   - Invoices (create/view)

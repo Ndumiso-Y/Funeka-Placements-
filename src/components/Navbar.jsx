@@ -76,12 +76,6 @@ export default function Navbar() {
               )}
             </NavLink>
           ))}
-          <NavLink
-            to="/staff/login"
-            className="ml-6 rounded-xl bg-funeka-action px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-funeka-action transition-all shadow-lg shadow-funeka-action/20"
-          >
-            Staff Portal
-          </NavLink>
         </nav>
 
         {/* Mobile menu toggle */}
@@ -112,13 +106,6 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            <NavLink
-              to="/staff/login"
-              onClick={() => setOpen(false)}
-              className="mt-4 rounded-xl bg-funeka-action px-4 py-4 text-center text-sm font-black uppercase tracking-widest text-white"
-            >
-              Staff Portal
-            </NavLink>
           </Container>
         </div>
       )}
