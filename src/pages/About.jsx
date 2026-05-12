@@ -24,7 +24,7 @@ export default function About() {
                 <span className="flex h-2 w-2 rounded-full bg-funeka-action animate-pulse"></span>
                 Established Industry Partners
               </div>
-              <h1 className="text-6xl sm:text-[8rem] font-black text-funeka-anchor tracking-tighter leading-[0.85] uppercase">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-funeka-anchor tracking-tight leading-[0.95] uppercase">
                 STRATEGIC <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-anchor">PROFILE</span>
               </h1>

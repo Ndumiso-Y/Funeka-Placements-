@@ -34,7 +34,7 @@ export default function StaffLogin() {
       <Container>
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-black text-funeka-anchor uppercase tracking-tighter mb-4">Staff <span className="text-funeka-brand">Login</span></h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-funeka-anchor uppercase tracking-tight mb-4">Staff <span className="text-funeka-brand">Login</span></h1>
             <p className="text-lg text-funeka-text font-medium">
               Authorized access only. Secure recruitment management portal.
             </p>

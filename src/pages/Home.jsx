@@ -58,7 +58,7 @@ export default function Home() {
 
         <Container className="relative z-10">
           <div className="max-w-xl pt-32 pb-16 md:pt-32 ml-0 lg:-ml-20">
-            <h1 className="text-5xl md:text-7xl lg:text-[10rem] font-black tracking-tighter text-white uppercase leading-[0.85] drop-shadow-2xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase leading-[0.95] drop-shadow-2xl">
               TRUSTED <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-white">TALENT</span>
             </h1>

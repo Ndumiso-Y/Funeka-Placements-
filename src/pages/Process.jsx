@@ -30,7 +30,7 @@ export default function Process() {
         </div>
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
-            <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black text-white drop-shadow-2xl uppercase leading-[0.85] tracking-tighter">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
               OPERATIONAL <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">PROTOCOL</span>
             </h1>

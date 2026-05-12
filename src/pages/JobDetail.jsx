@@ -53,7 +53,7 @@ export default function JobDetail() {
               </span>
             </div>
 
-            <h1 className="text-5xl sm:text-[6rem] font-black text-white drop-shadow-2xl tracking-tighter uppercase leading-[0.9]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-2xl tracking-tight uppercase leading-[0.95]">
               {job.title}
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/90 font-bold flex items-center gap-5">
