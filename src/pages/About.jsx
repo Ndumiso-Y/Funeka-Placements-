@@ -22,17 +22,17 @@ export default function About() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-funeka-anchor/10 bg-funeka-bg px-4 py-1.5 text-[10px] font-black text-funeka-anchor mb-8 uppercase tracking-[0.25em]">
                 <span className="flex h-2 w-2 rounded-full bg-funeka-action animate-pulse"></span>
-                Established Industry Partners
+                Rustenburg Recruitment Agency
               </div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-funeka-anchor tracking-tight leading-[0.95] uppercase">
-                STRATEGIC <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-anchor">PROFILE</span>
+                About Funeka Placements <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-anchor">Rustenburg</span>
               </h1>
               <p className="mt-10 text-xl text-funeka-text/70 leading-relaxed max-w-xl font-medium">
-                Funeka Placements is a premier recruitment agency specializing in the <span className="text-funeka-anchor font-black border-b-4 border-funeka-action/30">mining and industrial sectors</span>.
+                Funeka Placements is a recruitment agency in Rustenburg specializing in the <span className="text-funeka-anchor font-black border-b-4 border-funeka-action/30">mining and industrial sectors</span>.
               </p>
               <p className="mt-8 text-lg text-funeka-text/60 leading-relaxed max-w-xl">
-                By leveraging our extensive candidate databases and a rigorous process, we ensure every placement delivers technical competence and long-term performance.
+                By leveraging our candidate databases and a rigorous process, we support dependable staff placement services for employers and career placement support for job seekers in North West.
               </p>
               
               <div className="mt-12 p-10 rounded-[3rem] border-4 border-funeka-bg bg-white shadow-2xl flex items-start gap-8 group hover:border-funeka-action/30 transition-all">
@@ -42,11 +42,16 @@ export default function About() {
                 <div>
                   <div className="text-[10px] font-black text-funeka-anchor/40 uppercase tracking-[0.25em] mb-2">Connect With Operations</div>
                   <div className="text-funeka-anchor leading-relaxed font-bold">
-                    <div className="text-lg">28 Abbie Str, Rustenburg Center</div>
+                    <div className="text-lg">28 Abbie Str, Rustenburg Visitors Center</div>
                     <div className="mt-3">
                       <a className="text-funeka-action font-black hover:text-funeka-anchor transition-colors border-b-4 border-funeka-action/20" href="mailto:rustenburg@funekaplacements.co.za">
                         rustenburg@funekaplacements.co.za
                       </a>
+                    </div>
+                    <div className="mt-3 text-sm text-funeka-anchor/70">
+                      <a className="hover:text-funeka-action transition-colors" href="tel:+27148800501">014 88 00 501</a>
+                      <span className="mx-2 text-funeka-anchor/30">|</span>
+                      <a className="hover:text-funeka-action transition-colors" href="https://wa.me/27783426211" target="_blank" rel="noopener noreferrer">WhatsApp 078 342 6211</a>
                     </div>
                   </div>
                 </div>
@@ -55,7 +60,7 @@ export default function About() {
 
             <div className="relative">
               <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
-                <img src={aboutTeam} alt="About Funeka Placements" className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+                <img src={aboutTeam} alt="Funeka Placements recruitment agency team in Rustenburg" className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
               </div>
               <div className="absolute -bottom-10 -left-10 bg-[#132D5D] p-10 rounded-[2.5rem] shadow-2xl hidden lg:block">
                 <div className="text-white font-black text-5xl leading-none tracking-tighter">10+</div>
@@ -90,7 +95,7 @@ export default function About() {
 
             <div className="relative">
               <div className="absolute -inset-10 bg-funeka-brand/5 rounded-[4rem] blur-3xl"></div>
-              <img src={mvImg} alt="Mission and vision" className="relative rounded-[3rem] shadow-2xl border-8 border-white" />
+              <img src={mvImg} alt="Funeka Placements mission and vision for recruitment services" className="relative rounded-[3rem] shadow-2xl border-8 border-white" />
             </div>
           </div>
         </Container>

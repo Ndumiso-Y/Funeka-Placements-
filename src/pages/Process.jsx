@@ -24,18 +24,18 @@ export default function Process() {
     <div>
       <section className="relative overflow-hidden border-b border-funeka-anchor min-h-[500px] sm:h-[650px] flex items-center pt-20 sm:pt-0">
         <div className="absolute inset-0">
-          <img src={hero} alt="Recruitment process" className="h-full w-full object-cover" />
+          <img src={hero} alt="Funeka Placements recruitment process in Rustenburg" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
         </div>
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
-              OPERATIONAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">PROTOCOL</span>
+              Recruitment Process <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Rustenburg</span>
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
-              A structured recruitment journey that supports consistent quality, clear communication and documented strategic decision-making.
+              A structured recruitment journey that supports employers and candidates with consistent quality, clear communication and documented placement decisions.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
               <Button as={NavLink} to="/employers" variant="primary" className="w-full sm:w-auto px-8 py-4 text-sm sm:px-12 sm:py-5 sm:text-lg">Hire Talent</Button>
@@ -48,7 +48,7 @@ export default function Process() {
       <section className="py-24 bg-white">
         <Container>
           <SectionHeading
-            title="Recruitment Process"
+            title="Employer and Candidate Placement Process"
             subtitle="A clear, step-by-step approach for employers and candidates from first brief through placement follow-up."
           />
 

@@ -34,7 +34,7 @@ ${data.get("requirements") || ""}`;
     <div>
       <section className="relative overflow-hidden border-b border-funeka-anchor min-h-[500px] sm:h-[650px] flex items-center pt-20 sm:pt-0">
         <div className="absolute inset-0">
-          <img src={hero} alt="Employers" className="h-full w-full object-cover object-center md:object-top" />
+          <img src={hero} alt="Employer recruitment support in Rustenburg" className="h-full w-full object-cover object-center md:object-top" />
           <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-transparent h-64" />
@@ -42,11 +42,11 @@ ${data.get("requirements") || ""}`;
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
-              SCALE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">TALENT</span>
+              Employer Recruitment Services <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Rustenburg</span>
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
-              We save your time, protect your reputation, and support better hiring outcomes in the most demanding technical sectors.
+              We help employers in Rustenburg and North West source reliable candidates through professional recruitment, staffing, and placement support.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
               <Button as="a" href="#recruit-form" variant="primary" className="w-full sm:w-auto px-8 py-4 text-sm sm:px-12 sm:py-5 sm:text-lg">Submit Requirement</Button>
@@ -59,15 +59,15 @@ ${data.get("requirements") || ""}`;
       <section className="py-24 bg-funeka-bg">
         <Container>
           <SectionHeading
-            title="Recruitment Excellence"
-            subtitle="Expertly sourcing and placing talent in specialized mining and technical roles."
+            title="Staffing Agency Support in Rustenburg"
+            subtitle="Expertly sourcing and placing talent in specialized mining, technical and operational roles."
           />
           <div className="grid gap-8 lg:grid-cols-3 mt-16">
             {[
               {
                 title: "Role alignment & fit",
                 text:
-                  "We clarify role expectations and align candidate profiles to both skills and culture fit — helping you hire for performance and retention.",
+                  "We clarify role expectations and align candidate profiles to both skills and culture fit, helping you hire for performance and retention.",
               },
               {
                 title: "Clear communication",
@@ -77,7 +77,7 @@ ${data.get("requirements") || ""}`;
               {
                 title: "Flexible solutions",
                 text:
-                  "Permanent, temporary, contract and labour hosting solutions depending on your operational needs and timelines.",
+                  "Permanent, temporary, contract and labour placement solutions depending on your operational needs and timelines.",
               },
             ].map((card) => (
               <div key={card.title} className="rounded-[2.5rem] border-2 border-funeka-divider bg-white p-12 shadow-sm hover:shadow-xl hover:border-funeka-action/20 transition-all group">

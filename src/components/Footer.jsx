@@ -12,14 +12,30 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <div className="text-2xl font-black text-white tracking-tighter uppercase mb-6">FUNEKA <span className="text-funeka-brand">PLACEMENTS</span></div>
             <div className="text-base font-bold text-white/80 leading-relaxed max-w-sm mb-8 border-l-4 border-funeka-brand pl-5">
-              "There is always a need" — Your specialized recruitment partner for mining and industrial excellence.
+              "There is always a need" - Recruitment agency in Rustenburg supporting employers and job seekers with staffing and placement services.
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="h-5 w-5 text-funeka-brand shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                <div className="text-sm font-bold text-white/80">28 Abbie Str, Rustenburg Visitors Center</div>
+                <div className="text-sm font-bold text-white/80">Funeka Placements, 28 Abbie Str, Rustenburg Visitors Center, North West, South Africa</div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="h-5 w-5 text-funeka-brand shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.14a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <a className="text-sm font-bold text-white/80 hover:text-funeka-brand transition-colors" href="tel:+27148800501">
+                  014 88 00 501
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="h-5 w-5 text-funeka-action shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg>
+                </div>
+                <a className="text-sm font-bold text-white/80 hover:text-funeka-action transition-colors" href="https://wa.me/27783426211" target="_blank" rel="noopener noreferrer">
+                  WhatsApp 078 342 6211
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <div className="h-5 w-5 text-funeka-action shrink-0">
@@ -28,6 +44,10 @@ export default function Footer() {
                 <a className="text-sm font-bold text-funeka-action hover:text-white transition-colors break-all" href="mailto:rustenburg@funekaplacements.co.za">
                   rustenburg@funekaplacements.co.za
                 </a>
+              </div>
+              <div className="text-xs font-bold text-white/60 leading-relaxed">
+                <div>Monday–Thursday: 07:30–15:30</div>
+                <div>Friday: 07:30–15:00</div>
               </div>
             </div>
           </div>

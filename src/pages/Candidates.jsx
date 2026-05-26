@@ -13,7 +13,7 @@ export default function Candidates() {
     <div>
       <section className="relative overflow-hidden border-b border-funeka-anchor min-h-[500px] sm:h-[650px] flex items-center pt-20 sm:pt-0">
         <div className="absolute inset-0">
-          <img src={hero} alt="Candidates" className="h-full w-full object-cover object-top" />
+          <img src={hero} alt="Candidate placement support in Rustenburg" className="h-full w-full object-cover object-top" />
           <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-transparent h-64" />
@@ -21,11 +21,11 @@ export default function Candidates() {
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
-              SPECIALIST <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">CAREERS</span>
+              Job Seekers and Career Placement <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Support</span>
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
-              We connect technical industrial professionals to elite mining and engineering roles through a high-precision, strategic matching process.
+              We support job seekers in Rustenburg and surrounding areas with candidate placement support for mining, technical, industrial and professional opportunities.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
               <Button as={NavLink} to="/jobs" variant="primary" className="w-full sm:w-auto px-8 py-4 text-sm sm:px-12 sm:py-5 sm:text-lg">Explore Portal</Button>
@@ -42,8 +42,8 @@ export default function Candidates() {
             
             <div className="max-w-3xl mx-auto text-center mb-20 relative z-10">
               <div className="h-1.5 w-12 bg-funeka-action rounded-full mx-auto mb-8"></div>
-              <h2 className="text-4xl sm:text-6xl font-black text-funeka-anchor uppercase tracking-tighter mb-6">Candidate Roadmap</h2>
-              <p className="text-funeka-text/60 text-xl font-medium">Strategic steps to connect with global industrial leaders.</p>
+              <h2 className="text-4xl sm:text-6xl font-black text-funeka-anchor uppercase tracking-tighter mb-6">Candidate Placement Roadmap</h2>
+              <p className="text-funeka-text/60 text-xl font-medium">Strategic steps to connect with employers and career opportunities in North West.</p>
             </div>
  
             <div className="grid gap-20 lg:grid-cols-2 lg:items-center relative z-10">
@@ -93,7 +93,7 @@ export default function Candidates() {
               <div className="relative">
                 <div className="absolute -inset-10 bg-funeka-brand/5 rounded-full blur-[100px]" />
                 <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
-                  <img src={howToApply} alt="How to apply" className="w-full h-auto object-cover" />
+                  <img src={howToApply} alt="How job seekers can apply for placement support" className="w-full h-auto object-cover" />
                 </div>
               </div>
             </div>

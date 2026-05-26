@@ -13,8 +13,9 @@ export default function Jobs() {
     <div className="py-24 bg-funeka-bg">
       <Container>
         <SectionHeading
-          title="Open Opportunities"
-          subtitle="Current vacancies will appear here once they are published by the Funeka Placements team."
+          as="h1"
+          title="Jobs and Placement Opportunities"
+          subtitle="Current vacancies and job placement services for candidates in Rustenburg, North West and surrounding areas."
         />
 
         <div className="mt-16 rounded-[2rem] border-2 border-funeka-divider bg-white p-6 shadow-sm">
@@ -105,7 +106,7 @@ export default function Jobs() {
                 No current vacancies listed yet.
               </h3>
               <p className="mt-5 max-w-2xl mx-auto text-funeka-text/70 leading-relaxed font-medium">
-                New roles will be published here once verified by Funeka Placements. You can still submit your CV for future opportunities.
+                New roles will be published here once verified by Funeka Placements. You can still submit your CV for future candidate placement support.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button as={NavLink} to="/apply" variant="primary" className="px-10 py-4">

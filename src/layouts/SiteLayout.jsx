@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import Seo from "../components/Seo.jsx";
 
 export default function SiteLayout() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function SiteLayout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo />
       <Navbar />
       <main className={`flex-1 ${isHeroPage ? "" : "pt-20 md:pt-24"}`}>
         <Outlet />

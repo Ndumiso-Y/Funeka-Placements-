@@ -102,3 +102,31 @@ Replace them with the real assets when available.
 
 ## Asset Optimisation
 See: `scripts/ffmpeg-commands.txt`
+
+## SEO and Google Search Console Setup
+After deployment, the owner should:
+1. Go to Google Search Console.
+2. Add the property: `https://www.funekaplacements.co.za/`
+3. Verify the domain using DNS TXT verification or HTML file verification.
+4. Submit the sitemap: `https://www.funekaplacements.co.za/sitemap.xml`
+5. Request indexing for the homepage.
+6. Create or update the Google Business Profile for Funeka Placements, because local SEO in Rustenburg depends heavily on Google Maps and business profile visibility.
+
+Confirmed local business details for Google Business Profile and directory listings:
+- Business name: Funeka Placements
+- Address: 28 Abbie Str, Rustenburg Visitors Center
+- Email: rustenburg@funekaplacements.co.za
+- Phone: 014 88 00 501
+- WhatsApp: 078 342 6211
+- Operating hours: Monday–Thursday: 07:30–15:30; Friday: 07:30–15:00
+
+## Local SEO Notes
+Winning local SEO requires more than code. Keep the following consistent and active:
+- Google Business Profile setup and maintenance.
+- Consistent business name, address or service area, and contact details across the website, directories, and social profiles.
+- Local backlinks from trusted Rustenburg, North West, recruitment, business, and industry sources.
+- Regular content updates for recruitment services, staffing support, job placement services, and hiring advice.
+- Reviews from real clients and candidates.
+- Clear service pages for employers and job seekers.
+- Fast website performance and optimized images.
+- Sitemap submitted to Google Search Console.

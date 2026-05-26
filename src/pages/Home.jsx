@@ -6,15 +6,15 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import TrustStrip from "../components/TrustStrip.jsx";
 import { jobs } from "../data/jobs.js";
 
-import heroImg from "../assets/images/home-hero-v3.png";
-import verticalImg from "../assets/images/Home-vertical.png";
-import servicesHeader from "../assets/images/services-header.png.webp";
+import heroImg from "../assets/images/home-hero-v3.webp";
+import verticalImg from "../assets/images/Home-vertical.webp";
+import servicesHeader from "../assets/images/services-header-optimized.webp";
 import processHero from "../assets/images/process-hero.png.webp";
 
 const deliverItems = [
-  { t: "Expert Insight", d: "We understand your business, culture and values, especially within the specialized mining and industrial sectors." },
-  { t: "Database Leverage", d: "We provide permanent, temporary, contract and labour hosting solutions backed by a deep candidate database." },
-  { t: "Structured Results", d: "Our structured recruitment process ensures every placement delivers the right skills and long-term performance." },
+  { t: "Employer Recruitment Support", d: "We understand your business, culture and values, especially for mining, technical and industrial hiring in Rustenburg and North West." },
+  { t: "Staff Placement Services", d: "We provide permanent, temporary, contract and labour hosting solutions backed by a deep candidate database." },
+  { t: "Candidate Placement Support", d: "Our structured recruitment process helps match dependable candidates with roles that support long-term performance." },
 ];
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <picture>
             <source media="(max-width: 640px)" srcSet={verticalImg} />
-            <img src={heroImg} alt="Funeka Placements" className="h-full w-full object-cover object-center sm:object-right" />
+            <img src={heroImg} alt="Funeka Placements recruitment agency in Rustenburg" className="h-full w-full object-cover object-center sm:object-right" />
           </picture>
           {/* Stronger scrim for navbar + mobile text readability */}
           <div className="absolute inset-0 bg-black/30 sm:bg-transparent" />
@@ -60,12 +60,12 @@ export default function Home() {
         <Container className="relative z-10">
           <div className="max-w-xl pt-32 pb-16 md:pt-32 ml-0 lg:-ml-20">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase leading-[0.95] drop-shadow-2xl">
-              TRUSTED <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-white">TALENT</span>
+              Recruitment Agency in Rustenburg <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-white">Reliable Talent</span>
             </h1>
 
             <p className="mt-8 text-base sm:text-xl text-white font-semibold leading-relaxed max-w-lg drop-shadow-lg bg-funeka-anchor/40 sm:bg-transparent rounded-xl p-3 sm:p-0">
-              "There is always a need" — We connect industry leaders with top-tier technical talent through rigorous methodology.
+              Funeka Placements provides recruitment and placement support for employers and job seekers in Rustenburg and surrounding areas. We help businesses find dependable candidates while supporting individuals looking for professional career opportunities.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
@@ -75,7 +75,7 @@ export default function Home() {
 
             <div className="mt-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.25em] text-white/60">
               <div className="h-px w-12 bg-white/30"></div>
-              <span>Expert recruitment since 2013</span>
+              <span>Recruitment services in North West since 2013</span>
             </div>
           </div>
         </Container>
@@ -85,8 +85,8 @@ export default function Home() {
       <section className="py-24 bg-funeka-bg">
         <Container>
           <SectionHeading
-            title="Strategic Entry Points"
-            subtitle="Whether you are building a team or growing a career, we provide the industrial bridge."
+            title="Recruitment Support for Employers and Job Seekers"
+            subtitle="Whether you are building a team or growing a career, our Rustenburg recruitment company provides practical placement support."
           />
 
           <div className="grid gap-8 md:grid-cols-2 mt-16">
@@ -94,7 +94,7 @@ export default function Home() {
               <div className="h-1.5 w-12 bg-funeka-anchor rounded-full mb-8"></div>
               <h3 className="text-3xl font-black text-funeka-anchor uppercase tracking-tight mb-4">Employers</h3>
               <p className="text-lg text-funeka-text/70 leading-relaxed font-medium mb-10">
-                Scale your operations with a structured recruitment process that ensures safety, skills, and culture fit.
+                Scale your operations with employer recruitment support that helps you identify reliable people for permanent, temporary, contract and labour placement needs.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button as={NavLink} to="/employers" variant="primary">Hire Talent</Button>
@@ -106,7 +106,7 @@ export default function Home() {
               <div className="h-1.5 w-12 bg-funeka-action rounded-full mb-8"></div>
               <h3 className="text-3xl font-black text-funeka-anchor uppercase tracking-tight mb-4">Candidates</h3>
               <p className="text-lg text-funeka-anchor/70 leading-relaxed font-medium mb-10">
-                Access specialized mining and technical roles. Join our database for exclusive career growth.
+                Access candidate placement support for specialized mining, technical and industrial roles across Rustenburg, North West and nearby areas.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button as={NavLink} to="/jobs" variant="primary">View Openings</Button>
@@ -121,7 +121,7 @@ export default function Home() {
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-funeka-brand/5 -translate-x-1/2"></div>
         <Container className="relative z-10">
-          <SectionHeading title="How Funeka delivers" subtitle="A recruitment partner that saves your time, protects your reputation, and supports better hiring outcomes." />
+          <SectionHeading title="Why Choose Funeka Placements" subtitle="A recruitment partner that saves your time, protects your reputation, and supports better hiring outcomes." />
 
           {/* Desktop grid */}
           <div className="hidden md:grid gap-8 md:grid-cols-3 mt-16">
@@ -181,7 +181,7 @@ export default function Home() {
                   "In-depth role profiling and culture analysis",
                   "Rigorous candidate screening and verification",
                   "Comprehensive interview coordination",
-                  "Post-placement performance follow-ups"
+                  "Post-placement performance follow-ups for employers and candidates"
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-5 group">
                     <div className="h-10 w-10 rounded-xl bg-funeka-anchor flex items-center justify-center text-funeka-brand shadow-lg shadow-funeka-anchor/20 transition-all">
@@ -197,7 +197,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="absolute -inset-10 bg-funeka-anchor/5 rounded-full blur-[100px]"></div>
-              <img src={processHero} alt="Process" className="relative rounded-[3rem] shadow-2xl border-8 border-white w-full" />
+              <img src={processHero} alt="Structured recruitment process for employers in Rustenburg" className="relative rounded-[3rem] shadow-2xl border-8 border-white w-full" />
               <div className="absolute -bottom-10 -right-10 bg-funeka-anchor p-10 rounded-[2.5rem] shadow-2xl border-4 border-white hidden sm:block">
                 <div className="text-5xl font-black text-funeka-brand">100%</div>
                 <div className="text-xs font-black text-white/60 uppercase tracking-[0.2em] mt-2">Compliance Focus</div>
@@ -214,13 +214,13 @@ export default function Home() {
             <div className="lg:w-1/2 order-2 lg:order-1">
               <div className="relative group">
                 <div className="absolute -inset-10 bg-funeka-brand/5 rounded-full blur-[100px] transition-colors"></div>
-                <img src={servicesHeader} alt="Services" className="relative rounded-[3rem] shadow-2xl border-8 border-white w-full" />
+                <img src={servicesHeader} alt="Professional staffing and recruitment services in North West" className="relative rounded-[3rem] shadow-2xl border-8 border-white w-full" />
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <SectionHeading
-                title="Specialized Services"
-                subtitle="From permanent placements to contract and labour hosting solutions, we support your industrial hiring goals."
+                title="Recruitment Services in North West"
+                subtitle="From permanent placements to contract staffing and labour hosting solutions, we support industrial hiring goals in Rustenburg and surrounding areas."
               />
               <div className="grid gap-4 sm:grid-cols-2 mt-12">
                 {[
@@ -313,7 +313,33 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 7) Trust & Compliance Strip */}
+      {/* 7) Local service area CTA */}
+      <section className="py-24 bg-white border-t border-funeka-divider">
+        <Container>
+          <div className="rounded-[2.5rem] border-2 border-funeka-divider bg-funeka-bg/40 p-10 lg:p-16">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <h2 className="text-3xl sm:text-5xl font-black text-funeka-anchor uppercase tracking-tighter leading-none">
+                  Serving Rustenburg and Surrounding Areas
+                </h2>
+                <p className="mt-6 text-lg text-funeka-text/70 leading-relaxed font-medium">
+                  Funeka Placements supports employers and job seekers across Rustenburg, North West, South Africa. As an employment agency in Rustenburg, we provide job placement services, staff placement services and practical hiring support for technical and industrial needs.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row lg:justify-end gap-4">
+                <Button as={NavLink} to="/contact" variant="primary" className="px-10 py-4">
+                  Contact Funeka Placements
+                </Button>
+                <Button as={NavLink} to="/employers" variant="ghost" className="px-10 py-4">
+                  Request Staff
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 8) Trust & Compliance Strip */}
       <TrustStrip />
     </div>
   );

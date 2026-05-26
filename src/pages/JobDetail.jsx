@@ -31,7 +31,7 @@ export default function JobDetail() {
     <div>
       <section className="relative overflow-hidden border-b border-funeka-anchor min-h-[450px] sm:min-h-[600px] flex items-center">
         <div className="absolute inset-0">
-          <img src={jobHeader} alt="Job detail" className="h-full w-full object-cover" />
+          <img src={jobHeader} alt="Job placement opportunity through Funeka Placements" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/80 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
         </div>

@@ -43,15 +43,16 @@ Message:
 ${form.message}
 
 POPIA Consent: Yes`;
-    return `mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:rustenburg@funekaplacements.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [form]);
 
   return (
     <div className="py-12">
       <Container>
         <SectionHeading
+          as="h1"
           title="Submit CV"
-          subtitle="Prepare an email application for Funeka Placements. Attach your CV before sending from your email app."
+          subtitle="Prepare an email application for Funeka Placements job placement services in Rustenburg and surrounding areas. Attach your CV before sending from your email app."
         />
 
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -166,8 +167,8 @@ POPIA Consent: Yes`;
               <div className="mt-6 rounded-2xl border border-funeka-divider bg-white p-5">
                 <div className="text-sm font-semibold text-funeka-anchor">Email prepared</div>
                 <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                  Your email app should now open with your details prepared. Attach your CV before sending, or email your CV directly to{" "}
-                  <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
+                  Your email app should now open with your details prepared. Attach your CV before sending for candidate placement support, or email your CV directly to{" "}
+                  <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
                     rustenburg@funekaplacements.co.za
                   </a>.
                 </p>
@@ -179,7 +180,7 @@ POPIA Consent: Yes`;
             <div className="text-sm font-semibold text-funeka-anchor">Fallback option</div>
             <p className="mt-2 text-sm text-funeka-text leading-relaxed">
               If you experience issues with the form, send your CV to{" "}
-              <a className="hover:underline" href="mailto:sharon@funekaplacements.co.za,ruth@funekaplacements.co.za">
+              <a className="hover:underline" href="mailto:rustenburg@funekaplacements.co.za">
                 rustenburg@funekaplacements.co.za
               </a>.
             </p>
@@ -195,7 +196,7 @@ POPIA Consent: Yes`;
             <div className="mt-6 rounded-2xl border border-funeka-divider bg-funeka-bg p-5">
               <div className="text-sm font-semibold text-funeka-anchor">POPIA note</div>
               <p className="mt-2 text-sm text-funeka-text leading-relaxed">
-                We process your personal information for recruitment purposes only and keep it secure. Read our Privacy (POPIA) page for details.
+                We process your personal information for recruitment and employment placement purposes only and keep it secure. Read our Privacy (POPIA) page for details.
               </p>
             </div>
           </div>

@@ -2,14 +2,14 @@ import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
 import { NavLink } from "react-router-dom";
-import header from "../assets/images/services-header.png.webp";
+import header from "../assets/images/services-header-optimized.webp";
 
 export default function Services() {
   return (
     <div>
       <section className="relative overflow-hidden border-b border-funeka-anchor min-h-[500px] sm:h-[650px] flex items-center pt-20 sm:pt-0">
         <div className="absolute inset-0">
-          <img src={header} alt="Services" className="h-full w-full object-cover" />
+          <img src={header} alt="Professional staffing and recruitment services" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-funeka-anchor/95 via-funeka-anchor/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-funeka-anchor/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-transparent h-64" />
@@ -17,11 +17,11 @@ export default function Services() {
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
-              CORE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">SOLUTIONS</span>
+              Recruitment and Staffing Services <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Rustenburg</span>
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
-              Permanent, temporary, and labour hosting solutions engineered for the <span className="text-funeka-brand font-black">mining and industrial</span> sectors.
+              Permanent, temporary, contract and labour placement solutions engineered for employers in the <span className="text-funeka-brand font-black">mining and industrial</span> sectors.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
               <Button as={NavLink} to="/employers" variant="primary" className="w-full sm:w-auto px-8 py-4 text-sm sm:px-12 sm:py-5 sm:text-lg">Partner With Us</Button>
@@ -34,15 +34,15 @@ export default function Services() {
       <section className="py-24 bg-white">
         <Container>
           <SectionHeading
-            title="Strategic Service Model"
-            subtitle="Strategically sourcing and placing talent in specialized technical and operational environments."
+            title="Recruitment Services in North West"
+            subtitle="Strategically sourcing and placing talent in specialized technical and operational environments across Rustenburg and surrounding areas."
           />
 
           <div className="grid gap-12 lg:grid-cols-2 mt-20">
             {[
               {
                 title: "Permanent placements",
-                text: "For long-term roles where culture fit and performance alignment matter. We leverage our deep mining candidate databases to find high-impact talent.",
+                text: "For long-term roles where culture fit and performance alignment matter. We leverage our mining candidate databases to find high-impact talent.",
               },
               {
                 title: "Temporary placements",
@@ -54,7 +54,7 @@ export default function Services() {
               },
               {
                 title: "Labour hosting",
-                text: "Flexible staffing support where speed is essential, backed by structured documentation and clear professional communication.",
+                text: "Flexible staff placement services where speed is essential, backed by structured documentation and clear professional communication.",
               },
             ].map((s) => (
               <div key={s.title} className="rounded-[2.5rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-xl hover:border-funeka-action/20 hover:bg-white transition-all group">

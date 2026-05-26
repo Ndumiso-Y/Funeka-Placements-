@@ -7,14 +7,15 @@ export default function Privacy() {
     <div className="py-32 bg-funeka-bg min-h-screen">
       <Container>
         <SectionHeading
+          as="h1"
           title="POPIA & Privacy Mandate"
-          subtitle="How Funeka Placements collects and utilizes strategic personal data for industrial recruitment."
+          subtitle="How Funeka Placements collects and uses personal data for recruitment, staffing and placement services."
         />
  
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start mt-20">
           <div className="rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl relative group">
             <div className="absolute inset-0 bg-funeka-anchor/20 group-hover:bg-transparent transition-all duration-700"></div>
-            <img src={privacyImg} alt="Privacy and security" className="h-full w-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700" />
+            <img src={privacyImg} alt="Privacy and security for recruitment candidate data" className="h-full w-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700" />
           </div>
  
           <div className="rounded-[3rem] border-4 border-white bg-white p-12 shadow-2xl">
