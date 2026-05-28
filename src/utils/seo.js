@@ -10,8 +10,7 @@ const defaultDescription =
 const routes = {
   "/": {
     title: "Funeka Placements | Recruitment Agency in Rustenburg",
-    description:
-      "Funeka Placements connects employers and job seekers through reliable recruitment, staffing, and placement services in Rustenburg, North West.",
+    description: defaultDescription,
   },
   "/about": {
     title: "About Funeka Placements | Rustenburg Recruitment Agency",

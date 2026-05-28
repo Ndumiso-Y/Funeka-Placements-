@@ -323,7 +323,7 @@ export default function Home() {
                   Serving Rustenburg and Surrounding Areas
                 </h2>
                 <p className="mt-6 text-lg text-funeka-text/70 leading-relaxed font-medium">
-                  Funeka Placements supports employers and job seekers across Rustenburg, North West, South Africa. As an employment agency in Rustenburg, we provide job placement services, staff placement services and practical hiring support for technical and industrial needs.
+                  The Funeka Placements Rustenburg office supports employers and job seekers across Rustenburg, North West, South Africa. As an employment agency in Rustenburg, we provide recruitment services in Rustenburg, staffing support in Rustenburg, employer recruitment support and candidate placement support for technical and industrial needs.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row lg:justify-end gap-4">

@@ -1,11 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const isVercel = process.env.VERCEL === "1";
-const base = process.env.VITE_BASE_PATH || (isVercel ? "/" : "/Funeka-Placements-/");
+const base = process.env.VITE_BASE_PATH || "/";
 
-// GitHub Pages serves this repo from /Funeka-Placements-/.
-// Vercel serves the app from the deployment root, so it must use /.
+// The production site is served from the domain root on Vercel.
 export default defineConfig({
   plugins: [react()],
   base,
