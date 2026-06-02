@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <div className="text-2xl font-black text-white tracking-tighter uppercase mb-6">FUNEKA <span className="text-funeka-brand">PLACEMENTS</span></div>
             <div className="text-base font-bold text-white/80 leading-relaxed max-w-sm mb-8 border-l-4 border-funeka-brand pl-5">
-              "There is always a need" - Recruitment agency in Rustenburg supporting employers and job seekers with staffing and placement services.
+              "There is always a need" - Practical recruitment support for employers and job seekers.
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
@@ -46,8 +46,8 @@ export default function Footer() {
                 </a>
               </div>
               <div className="text-xs font-bold text-white/60 leading-relaxed">
-                <div>Monday–Thursday: 07:30–15:30</div>
-                <div>Friday: 07:30–15:00</div>
+                <div>Monday-Thursday: 07:30-15:30</div>
+                <div>Friday: 07:30-17:00</div>
               </div>
             </div>
           </div>

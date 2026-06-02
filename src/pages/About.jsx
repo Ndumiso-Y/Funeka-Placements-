@@ -22,17 +22,16 @@ export default function About() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-funeka-anchor/10 bg-funeka-bg px-4 py-1.5 text-[10px] font-black text-funeka-anchor mb-8 uppercase tracking-[0.25em]">
                 <span className="flex h-2 w-2 rounded-full bg-funeka-action animate-pulse"></span>
-                Rustenburg Recruitment Agency
+                Professional Recruitment Partner
               </div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-funeka-anchor tracking-tight leading-[0.95] uppercase">
-                About Funeka Placements <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-anchor">Rustenburg</span>
+                About Funeka Placements
               </h1>
               <p className="mt-10 text-xl text-funeka-text/70 leading-relaxed max-w-xl font-medium">
-                Funeka Placements is a recruitment agency in Rustenburg specializing in the <span className="text-funeka-anchor font-black border-b-4 border-funeka-action/30">mining and industrial sectors</span>.
+                Funeka Placements was created to bring structure, trust, and professionalism to the recruitment process.
               </p>
               <p className="mt-8 text-lg text-funeka-text/60 leading-relaxed max-w-xl">
-                By leveraging our candidate databases and a rigorous process, we support dependable staff placement services for employers and career placement support for job seekers in North West.
+                Operating from Rustenburg, the company supports employers and job seekers with a practical understanding of the local employment landscape.
               </p>
               
               <div className="mt-12 p-10 rounded-[3rem] border-4 border-funeka-bg bg-white shadow-2xl flex items-start gap-8 group hover:border-funeka-action/30 transition-all">
@@ -60,7 +59,7 @@ export default function About() {
 
             <div className="relative">
               <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
-                <img src={aboutTeam} alt="Funeka Placements recruitment agency team in Rustenburg" className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+                <img src={aboutTeam} alt="Funeka Placements recruitment team" className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
               </div>
               <div className="absolute -bottom-10 -left-10 bg-[#132D5D] p-10 rounded-[2.5rem] shadow-2xl hidden lg:block">
                 <div className="text-white font-black text-5xl leading-none tracking-tighter">10+</div>
@@ -73,7 +72,7 @@ export default function About() {
 
       <section className="py-32 bg-white">
         <Container>
-          <SectionHeading title="Strategic Intent" subtitle="What guides our work and how we define success for our global industrial partners." />
+          <SectionHeading title="Built on Trust and Professional Service" subtitle="What guides our work and how we define success for clients and candidates." />
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center mt-20">
             <div className="space-y-10">
               <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-brand/30 hover:bg-white transition-all group">
@@ -134,7 +133,7 @@ export default function About() {
 
       <section className="py-32 bg-white">
         <Container>
-          <SectionHeading title="Service Delivery" subtitle="A practical overview of our strategic commitments." />
+          <SectionHeading title="Who We Support" subtitle="A practical overview of our commitments to employers and job seekers." />
           <div className="grid gap-10 lg:grid-cols-2 mt-20">
             <div className="rounded-[3rem] border-2 border-funeka-divider bg-funeka-bg/30 p-12 shadow-sm hover:shadow-2xl hover:border-funeka-brand/30 hover:bg-white transition-all group">
               <div className="h-16 w-16 rounded-2xl bg-funeka-anchor text-funeka-brand flex items-center justify-center mb-8 group-hover:bg-funeka-action group-hover:text-white transition-all">

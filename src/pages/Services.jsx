@@ -17,11 +17,11 @@ export default function Services() {
         <Container className="relative z-10">
           <div className="max-w-4xl pt-16 pb-16 md:pt-0">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl uppercase leading-[0.95] tracking-tight">
-              Recruitment and Staffing Services <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Rustenburg</span>
+              Recruitment and <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-funeka-brand to-funeka-white">Placement Services</span>
             </h1>
             <p className="mt-10 text-xl sm:text-2xl text-white/95 leading-relaxed drop-shadow-md max-w-2xl font-medium">
-              Permanent, temporary, contract and labour placement solutions engineered for employers in the <span className="text-funeka-brand font-black">mining and industrial</span> sectors.
+              Funeka Placements provides practical recruitment support for employers and candidate placement support for job seekers, with services structured around clearer communication and more reliable placement processes.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto">
               <Button as={NavLink} to="/employers" variant="primary" className="w-full sm:w-auto px-8 py-4 text-sm sm:px-12 sm:py-5 sm:text-lg">Partner With Us</Button>
@@ -34,8 +34,8 @@ export default function Services() {
       <section className="py-24 bg-white">
         <Container>
           <SectionHeading
-            title="Recruitment Services in North West"
-            subtitle="Strategically sourcing and placing talent in specialized technical and operational environments across Rustenburg and surrounding areas."
+            title="Employer Recruitment Support"
+            subtitle="We provide recruitment and placement services from Rustenburg for specialized technical and operational environments across the surrounding region."
           />
 
           <div className="grid gap-12 lg:grid-cols-2 mt-20">

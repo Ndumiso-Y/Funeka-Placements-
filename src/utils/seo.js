@@ -132,7 +132,7 @@ export function getEmploymentAgencySchema() {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Friday",
         opens: "07:30",
-        closes: "15:00",
+        closes: "17:00",
       },
     ],
     knowsAbout: [
