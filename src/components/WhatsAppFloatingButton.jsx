@@ -9,11 +9,11 @@ export default function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Funeka Placements on WhatsApp"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 p-3.5 sm:px-5 sm:py-3.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 w-12 h-12 sm:w-auto sm:h-auto sm:gap-2 sm:px-5 sm:py-3.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
     >
       {/* WhatsApp SVG Icon */}
       <svg
-        className="w-6 h-6 fill-current"
+        className="w-6 h-6 fill-current shrink-0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
