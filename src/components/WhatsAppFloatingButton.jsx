@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function WhatsAppFloatingButton() {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const whatsappUrl = "https://wa.me/27783426211?text=Hello%20Funeka%20Placements%2C%20I%20visited%20your%20website%20and%20would%20like%20assistance.";
 
-  return (
+  const mobileStyle = {
+    bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
+    right: "calc(1.25rem + env(safe-area-inset-right, 0px))",
+  };
+
+  const buttonElement = (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Funeka Placements on WhatsApp"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 w-12 h-12 sm:w-auto sm:h-auto sm:gap-2 sm:px-5 sm:py-3.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
+      className="fixed z-[99999] flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 w-12 h-12 sm:w-auto sm:h-auto sm:bottom-6 sm:right-6 sm:gap-2 sm:px-5 sm:py-3.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
+      style={isMobile ? mobileStyle : undefined}
     >
       {/* WhatsApp SVG Icon */}
       <svg
@@ -25,4 +41,6 @@ export default function WhatsAppFloatingButton() {
       </span>
     </a>
   );
+
+  return createPortal(buttonElement, document.body);
 }
