@@ -41,3 +41,18 @@ body {
 a {
   text-decoration: none;
 }
+
+/* Responsive Floating WhatsApp Button with Safe Area Support */
+.whatsapp-btn {
+  position: fixed;
+  z-index: 99999;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 640px) {
+  .whatsapp-btn {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  }
+}
