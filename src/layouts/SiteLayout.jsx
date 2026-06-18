@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Seo from "../components/Seo.jsx";
+import WhatsAppFloatingButton from "../components/WhatsAppFloatingButton.jsx";
 
 export default function SiteLayout() {
   const location = useLocation();
@@ -21,6 +22,7 @@ export default function SiteLayout() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFloatingButton />
     </div>
   );
 }
