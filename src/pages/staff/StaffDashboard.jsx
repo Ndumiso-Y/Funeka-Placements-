@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Container from "../../components/Container.jsx";
 import Button from "../../components/Button.jsx";
 
-const PASS = "funeka2025";
-
 // ── tiny local-storage helpers ──────────────────────────────────────────────
 function load(key, fallback) {
   try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
