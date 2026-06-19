@@ -158,6 +158,10 @@ Intended RLS direction:
 - Public insert policies for website forms must be carefully restricted.
 - No service role key must ever be exposed in frontend code.
 
+Phase 1A SQL draft:
+- Review `supabase/staff-portal-schema.sql` before running it in Supabase.
+- Public insert policies are documented there but should stay disabled until website form validation, rate limiting, and storage handling are implemented.
+
 ## Portal Route Plan
 
 Current disabled staff routes:
