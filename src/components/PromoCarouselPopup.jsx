@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const CAMPAIGN_END_DATE = "2026-06-26";
 const SESSION_KEY = "funeka_june_2026_promo_seen";
@@ -66,8 +66,30 @@ function isCampaignActive() {
 export default function PromoCarouselPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const autoSlideTimerRef = useRef(null);
   const slides = useMemo(() => PROMO_SLIDES, []);
   const activeSlide = slides[activeIndex];
+
+  const clearAutoSlideTimer = useCallback(() => {
+    if (autoSlideTimerRef.current) {
+      window.clearInterval(autoSlideTimerRef.current);
+      autoSlideTimerRef.current = null;
+    }
+  }, []);
+
+  const startAutoSlideTimer = useCallback(() => {
+    if (!isOpen || slides.length < 2) return;
+
+    clearAutoSlideTimer();
+    autoSlideTimerRef.current = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % slides.length);
+    }, AUTO_SLIDE_MS);
+  }, [clearAutoSlideTimer, isOpen, slides.length]);
+
+  const resetAutoSlideTimer = useCallback(() => {
+    clearAutoSlideTimer();
+    startAutoSlideTimer();
+  }, [clearAutoSlideTimer, startAutoSlideTimer]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -79,14 +101,9 @@ export default function PromoCarouselPopup() {
   }, []);
 
   useEffect(() => {
-    if (!isOpen || slides.length < 2) return undefined;
-
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
-    }, AUTO_SLIDE_MS);
-
-    return () => window.clearInterval(timer);
-  }, [isOpen, slides.length]);
+    startAutoSlideTimer();
+    return clearAutoSlideTimer;
+  }, [clearAutoSlideTimer, startAutoSlideTimer]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -102,16 +119,24 @@ export default function PromoCarouselPopup() {
   });
 
   function closePopup() {
+    clearAutoSlideTimer();
     sessionStorage.setItem(SESSION_KEY, "true");
     setIsOpen(false);
   }
 
   function showPrevious() {
     setActiveIndex((current) => (current === 0 ? slides.length - 1 : current - 1));
+    resetAutoSlideTimer();
   }
 
   function showNext() {
     setActiveIndex((current) => (current + 1) % slides.length);
+    resetAutoSlideTimer();
+  }
+
+  function showSlide(index) {
+    setActiveIndex(index);
+    resetAutoSlideTimer();
   }
 
   if (!isOpen || !activeSlide) return null;
@@ -184,7 +209,7 @@ export default function PromoCarouselPopup() {
               <button
                 key={slide.src}
                 type="button"
-                onClick={() => setActiveIndex(index)}
+                onClick={() => showSlide(index)}
                 className={`h-2.5 rounded-full transition-all ${
                   index === activeIndex
                     ? "w-8 bg-funeka-brand"
