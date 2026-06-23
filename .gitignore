@@ -22,3 +22,6 @@ Thumbs.db
 npm-debug.log*
 
 .vercel
+
+# Local source image assets
+Images/
