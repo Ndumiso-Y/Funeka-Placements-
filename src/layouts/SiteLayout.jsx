@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Seo from "../components/Seo.jsx";
 import WhatsAppFloatingButton from "../components/WhatsAppFloatingButton.jsx";
+import PromoCarouselPopup from "../components/PromoCarouselPopup.jsx";
 
 export default function SiteLayout() {
   const location = useLocation();
@@ -23,6 +24,7 @@ export default function SiteLayout() {
       </main>
       <Footer />
       <WhatsAppFloatingButton />
+      <PromoCarouselPopup />
     </div>
   );
 }
