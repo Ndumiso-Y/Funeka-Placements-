@@ -1,51 +1,121 @@
-const STORAGE_KEY = "funeka_staff_session_v1";
-const USERS_KEY = "funeka_staff_users_v1";
+import { supabase } from "../lib/supabaseClient.js";
+import { hasSupabaseConfig } from "../lib/env.js";
 
 /**
- * Phase 1 foundation:
- * - Admin-created accounts only
- * - No public self-signup
- *
- * TODO: Re-enable staff access only after integrating real backend
- * authentication (Supabase / Firebase / custom API). Do not ship mock
- * credentials in production.
+ * Returns a fallback error if Supabase is not configured.
  */
-export function seedDefaultUsers() {
-  const existing = JSON.parse(localStorage.getItem(USERS_KEY) || "null");
-  if (existing && Array.isArray(existing) && existing.length > 0) return;
-
-  localStorage.setItem(USERS_KEY, JSON.stringify([]));
+function checkConfig() {
+  if (!hasSupabaseConfig || !supabase) {
+    return {
+      ok: false,
+      message: "Authentication is currently unavailable. Backend integration is missing.",
+    };
+  }
+  return { ok: true };
 }
 
-export function getUsers() {
-  return JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
+/**
+ * Logs in the user and ensures they have a staff profile before returning success.
+ */
+export async function login(email, password) {
+  const configCheck = checkConfig();
+  if (!configCheck.ok) return configCheck;
+
+  try {
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (authError) {
+      return { ok: false, message: authError.message };
+    }
+
+    if (!authData.user) {
+      return { ok: false, message: "Login failed. No user returned." };
+    }
+
+    // Verify staff profile exists
+    const profile = await getStaffProfile(authData.user.id);
+    if (!profile) {
+      await supabase.auth.signOut();
+      return { ok: false, message: "Your account is not authorised for staff portal access." };
+    }
+
+    return { ok: true, session: authData.session, profile };
+  } catch (err) {
+    return { ok: false, message: "An unexpected error occurred during login." };
+  }
 }
 
-export function login(email, password) {
-  const users = getUsers();
-  const found = users.find(
-    (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
-  );
-  if (!found) return { ok: false, message: "Invalid email or password." };
-
-  const session = {
-    email: found.email,
-    name: found.name,
-    role: found.role,
-    at: Date.now(),
-  };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  return { ok: true, session };
+/**
+ * Logs out the user.
+ */
+export async function logout() {
+  if (!supabase) return;
+  await supabase.auth.signOut();
 }
 
-export function logout() {
-  localStorage.removeItem(STORAGE_KEY);
+/**
+ * Returns the current active session.
+ */
+export async function getSession() {
+  if (!supabase) return null;
+  const { data } = await supabase.auth.getSession();
+  return data.session;
 }
 
-export function getSession() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+/**
+ * Returns the current authenticated user.
+ */
+export async function getCurrentUser() {
+  if (!supabase) return null;
+  const { data } = await supabase.auth.getUser();
+  return data.user;
 }
 
-export function isAuthed() {
-  return !!getSession();
+/**
+ * Checks if there is an active authenticated session.
+ */
+export async function isAuthed() {
+  const session = await getSession();
+  return !!session;
+}
+
+/**
+ * Retrieves the staff profile for a given user ID from `public.staff_profiles`.
+ */
+export async function getStaffProfile(userId) {
+  if (!supabase || !userId) return null;
+  
+  const { data, error } = await supabase
+    .from("staff_profiles")
+    .select("*")
+    .eq("id", userId)
+    .single();
+    
+  if (error || !data) return null;
+  return data;
+}
+
+/**
+ * Checks if the current session has a valid staff profile.
+ */
+export async function isStaffUser() {
+  const user = await getCurrentUser();
+  if (!user) return false;
+  
+  const profile = await getStaffProfile(user.id);
+  return !!profile;
+}
+
+/**
+ * Checks if the current session belongs to an admin.
+ */
+export async function isAdminUser() {
+  const user = await getCurrentUser();
+  if (!user) return false;
+  
+  const profile = await getStaffProfile(user.id);
+  return profile?.role === "admin";
 }

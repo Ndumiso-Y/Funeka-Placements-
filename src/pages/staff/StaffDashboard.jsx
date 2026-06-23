@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "../../components/Container.jsx";
 import Button from "../../components/Button.jsx";
+import { logout } from "../../utils/auth.js";
+import StaffNoIndex from "../../components/staff/StaffNoIndex.jsx";
 
 // ── tiny local-storage helpers ──────────────────────────────────────────────
 function load(key, fallback) {
@@ -98,8 +100,8 @@ export default function StaffDashboard() {
     save("fp_candidates", updated);
   }
 
-  function logout() {
-    sessionStorage.removeItem("fp_auth");
+  async function handleLogout() {
+    await logout();
     navigate("/staff/login");
   }
 
@@ -112,6 +114,7 @@ export default function StaffDashboard() {
 
   return (
     <div className="min-h-screen bg-funeka-bg">
+      <StaffNoIndex />
       {/* Header */}
       <div className="bg-funeka-dark border-b border-white/10">
         <Container className="flex items-center justify-between h-16 gap-4">
@@ -122,7 +125,7 @@ export default function StaffDashboard() {
             <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Staff Portal</div>
           </div>
           <button
-            onClick={logout}
+            onClick={handleLogout}
             className="text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-funeka-action transition-colors"
           >
             Sign Out
@@ -167,7 +170,7 @@ export default function StaffDashboard() {
             </div>
             
             <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
-              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Live data integration is in progress</div>
               <p className="text-amber-800 leading-relaxed mb-4 font-bold">
                 Invoice generation is running in local preview mode. For full capability (Save, PDF Generation, Email Dispatch), a backend service is required.
               </p>
@@ -219,7 +222,7 @@ export default function StaffDashboard() {
             </div>
 
             <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
-              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Live data integration is in progress</div>
               <p className="text-amber-800 leading-relaxed mb-1 font-bold">
                 Employer tracking is currently running in local storage preview mode.
               </p>
@@ -265,7 +268,7 @@ export default function StaffDashboard() {
             </div>
 
             <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
-              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Live data integration is in progress</div>
               <p className="text-amber-800 leading-relaxed mb-1 font-bold">
                 Candidate tracking is currently running in local storage preview mode.
               </p>
@@ -312,7 +315,7 @@ export default function StaffDashboard() {
             </div>
             
             <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-sm text-funeka-text mb-6">
-              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Backend Integration Required</div>
+              <div className="font-black text-amber-600 uppercase tracking-widest mb-3">Live data integration is in progress</div>
               <p className="text-amber-800 leading-relaxed mb-4 font-bold">
                 Dynamic job posting is currently disabled. To enable the creation, editing, archiving, and deletion of jobs, this platform must be connected to a database (e.g., PostgreSQL via Supabase, Firebase Firestore, or MongoDB). 
               </p>
