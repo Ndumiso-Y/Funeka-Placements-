@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import Container from "../components/Container.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Button from "../components/Button.jsx";
+import VacancyAdvertGrid from "../components/VacancyAdvertGrid.jsx";
 import { jobs } from "../data/jobs.js";
 
 export default function Jobs() {
@@ -43,7 +44,7 @@ export default function Jobs() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:gap-10 md:grid-cols-2 mt-16">
+        <div className="grid gap-6 md:gap-10 md:grid-cols-2 xl:grid-cols-3 mt-16">
           {hasJobs ? (
             sortedJobs.map((job) => (
               <div
@@ -98,24 +99,24 @@ export default function Jobs() {
               </div>
             ))
           ) : (
-            <div className="md:col-span-2 rounded-[2.5rem] border-2 border-dashed border-funeka-divider bg-white p-10 lg:p-16 text-center shadow-sm">
-              <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-funeka-anchor text-funeka-brand">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+            <div className="md:col-span-2 xl:col-span-3">
+              <div className="mb-8 rounded-[2rem] border-2 border-funeka-divider bg-white p-8 shadow-sm">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                  <div>
+                    <div className="mb-4 h-1.5 w-14 rounded-full bg-funeka-action"></div>
+                    <h2 className="text-3xl sm:text-5xl font-black text-funeka-anchor uppercase tracking-tighter leading-none">
+                      Current Vacancies
+                    </h2>
+                    <p className="mt-4 max-w-3xl text-funeka-text/70 leading-relaxed font-medium">
+                      Applications for these vacancies have been extended to 6 July 2026.
+                    </p>
+                  </div>
+                  <div className="inline-flex w-fit rounded-xl border border-funeka-action/20 bg-funeka-action/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-funeka-action">
+                    Closing date extended: 6 July 2026
+                  </div>
+                </div>
               </div>
-              <h3 className="text-3xl sm:text-4xl font-black text-funeka-anchor uppercase tracking-tighter">
-                No current vacancies listed yet.
-              </h3>
-              <p className="mt-5 max-w-2xl mx-auto text-funeka-text/70 leading-relaxed font-medium">
-                New roles will be published here once verified by Funeka Placements. You can still submit your CV for future candidate placement support.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button as={NavLink} to="/apply" variant="primary" className="px-10 py-4">
-                  Submit Your CV
-                </Button>
-                <Button as={NavLink} to="/contact" variant="ghost" className="px-10 py-4">
-                  Contact Us
-                </Button>
-              </div>
+              <VacancyAdvertGrid />
             </div>
           )}
         </div>

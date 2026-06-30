@@ -4,6 +4,7 @@ import Container from "../components/Container.jsx";
 import Button from "../components/Button.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import TrustStrip from "../components/TrustStrip.jsx";
+import VacancyAdvertGrid from "../components/VacancyAdvertGrid.jsx";
 import { jobs } from "../data/jobs.js";
 
 import heroImg from "../assets/images/home-hero-v3.webp";
@@ -263,7 +264,7 @@ export default function Home() {
                 <span className="text-funeka-brand">Opportunities</span>
               </h2>
               <p className="mt-8 text-2xl text-white/60 font-medium leading-relaxed">
-                Current vacancies will appear here once published by the Funeka Placements team.
+                Applications for these vacancies have been extended to 6 July 2026.
               </p>
             </div>
             <Button as={NavLink} to="/jobs" variant="outline" className="px-12 py-5 text-lg">View Open Portal</Button>
@@ -293,21 +294,16 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="rounded-[2.5rem] border-2 border-white/10 bg-white/5 p-10 lg:p-14 text-center">
-              <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-white">
-                No current vacancies listed yet.
-              </h3>
-              <p className="mt-5 max-w-2xl mx-auto text-lg text-white/60 font-medium leading-relaxed">
-                Submit your CV for future opportunities, or check back for verified roles once they are published.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <Button as={NavLink} to="/apply" variant="primary" className="px-10 py-4">
-                  Submit Your CV
-                </Button>
-                <Button as={NavLink} to="/jobs" variant="outline" className="px-10 py-4">
-                  View Jobs Page
-                </Button>
+            <div>
+              <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter text-white">
+                  Current Vacancies
+                </h3>
+                <div className="inline-flex w-fit rounded-xl border border-funeka-brand/25 bg-funeka-brand/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-funeka-brand">
+                  Closing date extended: 6 July 2026
+                </div>
               </div>
+              <VacancyAdvertGrid limit={3} variant="dark" />
             </div>
           )}
         </Container>
